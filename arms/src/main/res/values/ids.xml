@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="retry" />
+    <item type="id" name="tv_empty" />
+    <item type="id" name="iv_empty" />
+    <item type="id" name="iv_network_error" />
+    <item type="id" name="tv_network_error" />
+
+    <item type="id" name="status_bar" />
+</resources>

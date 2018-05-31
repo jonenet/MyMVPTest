@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">--><!--&lt;!&ndash;<item&ndash;&gt;--><!--&lt;!&ndash;android:id="@+id/splash1">&ndash;&gt;--><!--&lt;!&ndash;<bitmap android:src="@drawable/team_home_bg"&ndash;&gt;--><!--&lt;!&ndash;android:gravity="bottom" />&ndash;&gt;--><!--&lt;!&ndash;</item>&ndash;&gt;--><!--&lt;!&ndash;<item>&ndash;&gt;--><!--&lt;!&ndash;<bitmap android:src="@drawable/team_home_bg" />&ndash;&gt;--><!--&lt;!&ndash;</item>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<item&ndash;&gt;--><!--&lt;!&ndash;android:id="@+id/splash2"&ndash;&gt;--><!--&lt;!&ndash;android:bottom="0dp"&ndash;&gt;--><!--&lt;!&ndash;&gt;&ndash;&gt;--><!--&lt;!&ndash;<bitmap android:src="@drawable/splash2"&ndash;&gt;--><!--&lt;!&ndash;android:gravity="bottom"&ndash;&gt;--><!--&lt;!&ndash;/>&ndash;&gt;--><!--&lt;!&ndash;</item>&ndash;&gt;--><!--</layer-list>-->
+
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="top"
+    android:src="@drawable/team_home_bg"
+    android:tileModeX="clamp"
+    android:tileModeY="repeat"/>

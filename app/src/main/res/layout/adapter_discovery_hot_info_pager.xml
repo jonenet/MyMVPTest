@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="10dp">
+
+    <ImageView
+        android:id="@+id/iv_hot_info"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitXY"
+        tools:src="@drawable/place_holder_product_list" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/iv_hot_info"
+        android:layout_toStartOf="@+id/iv_hot_info"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_hot_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/gray_text3"
+            android:textSize="16sp"
+            tools:text="标题标题标题标题标题标题标题标题标题标题标题标题" />
+
+        <TextView
+            android:id="@+id/tv_hot_info_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/gray_text4"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="20评" />
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/gray_bg" />
+
+
+</RelativeLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal"
+    android:paddingTop="10dp">
+
+    <ImageView
+        android:id="@+id/iv_hot_info"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:scaleType="fitXY" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@id/iv_hot_info"
+        android:layout_toRightOf="@id/iv_hot_info"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_hot_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textColor="@color/gray_text3"
+            android:textSize="14sp"
+            tools:text="标题标题标题标题标题标题标题标题标题标题标题标题" />
+
+        <TextView
+            android:id="@+id/tv_hot_info_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:maxLines="2"
+            android:textColor="@color/gray_text4"
+            android:textSize="14sp"
+            tools:text="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/gray_bg" />
+
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rb_evaluation_item"
+    android:layout_width="70dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="3dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="3dp"
+    android:background="@drawable/selector_evaluation_item_bg"
+    android:button="@null"
+    android:gravity="center"
+    android:maxLines="1"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    android:text="报告没帮助"
+    android:textColor="@color/evaluation_text"
+    android:textSize="11sp" />

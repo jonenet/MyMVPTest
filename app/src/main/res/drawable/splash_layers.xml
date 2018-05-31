@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/splash1"
+        android:bottom="0dp"
+        >
+        <bitmap android:src="@drawable/splash_screen"/>
+    </item>
+    <!--<item-->
+        <!--android:id="@+id/splash2"-->
+        <!--android:bottom="0dp"-->
+        <!--&gt;-->
+        <!--<bitmap android:src="@drawable/splash2"-->
+            <!--android:gravity="bottom"-->
+            <!--/>-->
+    <!--</item>-->
+</layer-list>

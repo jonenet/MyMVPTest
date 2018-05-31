@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    api 'com.android.support:support-v4:23.+'
+    //    compile files('libs/HwPush_SDK.jar')
+    api files('libs/MiPush_SDK_Client_3_2_2.jar')
+    api files('libs/xiaoneng-mqtt.jar')
+    api files('libs/xiaonengchatcore.jar')
+    api files('libs/xiaonengchatui.jar')
+    api files('libs/xiaonengnetwork.jar')
+    api files('libs/xiaonengutil.jar')
+    api files('libs/xiaonengv4.jar')
+    api files('libs/xiaonengxpush.jar')
+    api files('libs/xnandfixclasses.jar')
+    //    compile project(':PUSH-HMS-SDK')
+    api project(':PUSH-MEIZU-SDK-internal-publish')
+    //    compile 'cn.jiguang.sdk.plugin: xiaomi:3.0+'
+}

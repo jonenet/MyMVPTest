@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#C9A568</color>
+    <color name="colorPrimaryDeep">#10000000</color>
+    <color name="colorPrimaryUnCheck">#e8d9c2</color>
+    <color name="colorPrimaryDark">#C9A568</color>
+    <color name="colorPrimaryTransparent">#66C9A568</color>
+    <color name="colorPrimaryDarkTransparent">#66C9A568</color>
+
+    <color name="colorAccent">#DABB88</color>
+    <color name="colorAccent2">#1EDABB88</color>
+    <color name="transparent">@android:color/transparent</color>
+    <color name="white">@android:color/white</color>
+    <color name="white_tr">#ffffffff</color>
+    <color name="splash_timer_bg_color">#62000000</color>
+    <color name="gray_text">#666666</color>
+    <color name="gray_text2">#8D8D8D</color>
+    <color name="gray_line">#E8E8E8</color>
+    <color name="gray_bg">#ECEEED</color>
+    <color name="gray_e6">#E6E6E6</color>
+    <color name="gray_dark_bg">#b2b2b2</color>
+    <color name="white_bg">#F8F8F8</color>
+    <color name="white_bg_trans">#CCF2F2F2</color>
+    <color name="gray_dark_head">#C9A568</color>
+    <color name="gray_head">#F4F4F4</color>
+    <color name="green">#57a933</color>
+    <color name="green_tag">#09bb07</color>
+    <color name="green3">#41A352</color>
+    <color name="colorPrimary2">#C9A568</color>
+    <color name="poster_bg_color">#62000000</color>
+    <color name="warning_red">#de5032</color>
+    <color name="red">#ff0000</color>
+    <color name="redPrimary">#E64340</color>
+    <color name="redDelete">#E64340</color>
+    <color name="greenPrimary">#46cc44</color>
+    <color name="green2">#3abb00</color>
+    <color name="black">#333333</color>
+    <color name="blue">#157efb</color>
+
+    <color name="gray_text3">#474747</color>
+    <color name="gray_text4">#888888</color>
+    <color name="gray_text6">#c3c3c3</color>
+    <color name="gray_text5">#777777</color>
+
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_red">#FD4A2E</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+
+    <color name="black_text">#333333</color>
+    <color name="black_text_4D">#4D4D4D</color>
+    <color name="black_text_8D">#8D8D8D</color>
+    <color name="black_text_6A">#6A6A6A</color>
+
+    <color name="bg_FD">#FDFDFD</color>
+    <color name="colorDeepPrimary">#c7ab78</color>
+    <color name="text_color_trans">#D5D5D5</color>
+    <color name="timer_bg_color">#62000000</color>
+</resources>

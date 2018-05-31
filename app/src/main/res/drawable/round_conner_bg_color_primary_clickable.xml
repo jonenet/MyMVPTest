@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+
+    <item android:state_enabled="true">
+        <solid android:color="@color/colorPrimary" />
+
+        <corners android:radius="@dimen/bg_radius" />
+    </item>
+
+    <item android:state_enabled="false">
+        <solid android:color="@color/colorPrimaryUnCheck" />
+
+        <corners android:radius="@dimen/bg_radius" />
+    </item>
+</selector>

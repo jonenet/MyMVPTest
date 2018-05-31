@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="xloading_empty_view" type="layout" />
+    <item name="xloading_error_view" type="layout" />
+    <item name="xloading_loading_view" type="layout" />
+    <item name="xloading_no_network_view" type="layout" />
+</resources>

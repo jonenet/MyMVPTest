@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nested_scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
+    android:fillViewport="true"
+    android:overScrollMode="ifContentScrolls"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_bg"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_horizontal_margin">
+
+        <RelativeLayout
+            android:id="@+id/rl_mine_info"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@drawable/bg_mine_home">
+
+            <ImageView
+                android:id="@+id/civ_head"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/user_default_head" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/civ_head"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    style="@style/textfont_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:background="@drawable/round_conner_bg_color_primary_deep"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/action_login_now"
+                    android:textColor="@color/white"
+                    android:visibility="visible"
+                    tools:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/ll_logined_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tv_user_id"
+                        style="@style/textfont_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:textColor="@color/white" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/activity_vertical_margin_small">
+
+                        <View
+                            android:id="@+id/view_center"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_centerInParent="true" />
+
+                        <TextView
+                            android:id="@+id/tv_real_info_check"
+                            style="@style/textfont_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:layout_toLeftOf="@+id/view_center"
+                            android:background="@drawable/round_conner_bg_color_primary_deep"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="3dp"
+                            android:text="@string/real_info_check"
+                            android:textColor="@color/white_bg" />
+
+                        <TextView
+                            android:id="@+id/tv_action_bind_wx"
+                            style="@style/textfont_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_toRightOf="@+id/view_center"
+                            android:background="@drawable/round_conner_bg_color_primary_deep"
+                            android:paddingBottom="3dp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:paddingTop="3dp"
+                            android:text="@string/action_bind_wx"
+                            android:textColor="@color/white_bg" />
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="30dp"
+                            android:src="@drawable/upload_tips_icon"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginTop="-20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_my_brokerage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/fab_margin"
+                android:background="@drawable/btn_round_conner_bg_white_4"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_vertical_margin"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/action_my_brokerage"
+                        style="@style/textfont_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/action_my_brokerage" />
+
+                    <ImageView
+                        android:id="@+id/iv_hidden_balance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:paddingLeft="@dimen/activity_vertical_margin_small"
+                        android:paddingRight="@dimen/activity_vertical_margin_small"
+                        android:src="@drawable/ico_hide_mony" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/action_my_commission"
+                        style="@style/textfont_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/commission_details"
+                        android:textColor="@color/colorPrimary" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin_small"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingRight="5dp">
+
+                        <TextView
+                            style="@style/textfont_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/action_mine_balance" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tv_balance"
+                                style="@style/textfont_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="0.00"
+                                tools:text="1234567.00" />
+
+                            <TextView
+                                android:id="@+id/tv_withdrawal"
+                                style="@style/textfont_8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/activity_vertical_margin_small"
+                                android:background="@drawable/round_conner_bg_color_primary_hollow"
+                                android:paddingBottom="2dp"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingTop="2dp"
+                                android:text="@string/action_mine_withdrawal"
+                                android:textColor="@color/colorPrimary" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/gray_line" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_settlement"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/activity_vertical_margin">
+
+                        <TextView
+                            style="@style/textfont_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/action_mine_settlement" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_settlement"
+                                style="@style/textfont_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="0.00" />
+
+                            <ImageView
+                                android:id="@+id/iv_tip"
+                                android:layout_width="wrap_content"
+                                android:layout_height="15dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="@dimen/activity_vertical_margin"
+                                android:src="@drawable/mine_tip" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_round_conner_bg_white_4"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_vertical_margin">
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_safe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_user_safe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_my_safe" />
+
+                    <TextView
+                        android:id="@+id/tv_user_safe"
+                        style="?android:textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/iv_user_safe"
+                        android:background="@color/white"
+                        android:paddingBottom="@dimen/activity_vertical_margin"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="@dimen/activity_vertical_margin_small"
+                        android:paddingTop="@dimen/activity_vertical_margin"
+                        android:text="@string/action_mine_safe"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/tv_pwd_tip"
+                        style="@style/textfont_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/arr_1"
+                        android:padding="@dimen/activity_vertical_margin_small"
+                        android:text="未设置密码"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/arr_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/activity_vertical_margin"
+                        android:src="@drawable/arrow_right" />
+
+                </RelativeLayout>
+
+                <include
+                    layout="@layout/view_grayline"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" />
+
+                <TextView
+                    android:id="@+id/tv_user_problem"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:background="@color/white"
+                    android:drawableLeft="@drawable/ico_my_problem"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@drawable/arrow_right"
+                    android:paddingBottom="@dimen/activity_vertical_margin"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:text="@string/action_mine_problem"
+                    android:visibility="visible" />
+
+                <include
+                    layout="@layout/view_grayline"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" />
+
+                <TextView
+                    android:id="@+id/tv_user_feedback"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/activity_vertical_margin"
+                    android:background="@color/white"
+                    android:drawableLeft="@drawable/ico_my_feedback"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@drawable/arrow_right"
+                    android:paddingBottom="@dimen/activity_vertical_margin"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:text="@string/action_mine_feedback"
+                    android:visibility="visible" />
+
+                <include
+                    layout="@layout/view_grayline"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" />
+
+                <TextView
+                    android:id="@+id/tv_user_share"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:drawableLeft="@drawable/ico_my_share"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@drawable/arrow_right"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    android:text="@string/action_mine_share"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_user_setting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_user_setting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ico_my_setting" />
+
+                    <TextView
+                        android:id="@+id/tv_user_setting"
+                        style="?android:textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/iv_user_setting"
+                        android:background="@color/white"
+                        android:paddingBottom="@dimen/activity_vertical_margin"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="@dimen/activity_vertical_margin_small"
+                        android:paddingTop="@dimen/activity_vertical_margin"
+                        android:text="@string/action_mine_setting"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/activity_vertical_margin"
+                        android:src="@drawable/arrow_right" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
