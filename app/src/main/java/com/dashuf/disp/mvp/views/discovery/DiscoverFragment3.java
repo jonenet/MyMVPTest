@@ -161,15 +161,15 @@ public class DiscoverFragment3 extends BaseSimpleFragment<DiscoveryPresenter> im
             case "dskt":   //大神课堂
                 clazz = DiscoveryDSClassroomFragment.class;
                 break;
-////            case "rdzx":   //热点资讯
-////                clazz = DiscoveryHotInfoFragment.class;
-////                break;
-////            case "cpjl":    //产品交流
-////                clazz = DiscoveryProductExchangeFragment.class;
-////                break;
-////            case "rdhd":   //热点活动
-////                clazz = DiscoveryHotSpotsFragment.class;
-////                break;
+            case "rdzx":   //热点资讯
+                clazz = DiscoveryHotInfoFragment.class;
+                break;
+            case "cpjl":    //产品交流
+                clazz = DiscoveryProductExchangeFragment.class;
+                break;
+            case "rdhd":   //热点活动
+                clazz = DiscoveryHotSpotsFragment.class;
+                break;
             default:
                 clazz = DiscoveryNewsFragment.class;
                 break;
