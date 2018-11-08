@@ -116,8 +116,7 @@ public abstract class ClientModule {
             });
 
         if (null != intercept) {
-            builder
-                    .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+            builder.connectTimeout(TIME_OUT, TimeUnit.SECONDS)
                     .readTimeout(TIME_OUT, TimeUnit.SECONDS)
                     .addInterceptor(intercept);
         }

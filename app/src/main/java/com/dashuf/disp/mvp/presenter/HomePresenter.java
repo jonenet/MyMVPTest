@@ -10,6 +10,7 @@ import com.jess.arms.di.scope.FragmentScope;
 import com.jess.arms.mvp.BaseSimplePresenter;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -44,6 +45,11 @@ public class HomePresenter extends BaseSimplePresenter {
                 } else {
                     HomePresenter.this.mRootView.showMessage(result.getMessage());
                 }
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                super.onError(t);
             }
         });
     }

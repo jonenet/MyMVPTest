@@ -24,6 +24,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dashuf.disp.R;
 import com.dashuf.disp.mvp.model.event.WxLoginEvent;
@@ -45,10 +46,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.xiaoneng.uiutils.ToastUtils;
+import io.reactivex.Observable;
+import io.reactivex.functions.Consumer;
 import timber.log.Timber;
 
 /**
@@ -114,6 +119,8 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
             launchActivity(new Intent(this, HomeActivity.class));
         }
     }
+
+
 
     @Nullable
     @Override
@@ -191,6 +198,12 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
     }
 
     private void login() {
+        Observable.interval(0,2, TimeUnit.SECONDS).subscribe(new Consumer<Long>() {
+            @Override
+            public void accept(Long aLong) throws Exception {
+                System.out.println("Along = " +aLong);
+            }
+        });
         if (mobile.validate() && password.validate() && (loginType == LOGINTYPE_ACCONT) ||
                 optMobile.validate() && password_opt.validate() && (loginType == LOGINTYPE_OPT)) {
             Map<String, String> params = new HashMap<>();
@@ -210,7 +223,8 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
                     params.put("loginType", "002");
                 }
             }
-            mPresenter.doLogin(Message.obtain(this, params));
+//            mPresenter.doLogin(Message.obtain(this, params));
+
         }
     }
 
@@ -372,12 +386,43 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
 
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        Timber.i("TIME#onStart");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Timber.i("TIME#onStop");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Timber.i("TIME#onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Timber.i("TIME#onPause");
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Timber.i("TIME#onCreate");
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         if (timer != null) {
             timer.cancel();
             timer = null;
         }
+        Timber.i("TIME#onDestroy");
     }
 
     @Override
@@ -397,7 +442,7 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
 
     @Override
     public void showMessage(@NonNull String message) {
-
+        ArmsUtils.snackbarText(message);
     }
 
     @Override

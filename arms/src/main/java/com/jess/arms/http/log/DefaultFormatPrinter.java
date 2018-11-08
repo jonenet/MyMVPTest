@@ -50,7 +50,7 @@ public class DefaultFormatPrinter implements FormatPrinter {
     private static final String T = "\t";
     private static final String REQUEST_UP_LINE = "┌────── Request ────────────────────────────────────────────────────────────────────────";
     private static final String END_LINE = "└───────────────────────────────────────────────────────────────────────────────────────";
-    private static final String RESPONSE_UP_LINE = "┌────── Response ───────────────────────────────────────────────────────────────────────";
+    private static final String RESPONSE_UP_LINE = "\n\t┌────── Response ───────────────────────────────────────────────────────────────────────";
     private static final String BODY_TAG = "Body:";
     private static final String URL_TAG = "URL: ";
     private static final String METHOD_TAG = "Method: @";
@@ -78,6 +78,7 @@ public class DefaultFormatPrinter implements FormatPrinter {
         final String requestBody = LINE_SEPARATOR + BODY_TAG + LINE_SEPARATOR + bodyString;
         final String tag = getTag(true);
 
+        logLines(tag, new String[]{"\n"}, false);
         Timber.tag(tag).i(REQUEST_UP_LINE);
         logLines(tag, new String[]{URL_TAG + request.url()}, false);
         logLines(tag, getRequest(request), true);
@@ -94,6 +95,7 @@ public class DefaultFormatPrinter implements FormatPrinter {
     public void printFileRequest(Request request) {
         final String tag = getTag(true);
 
+        logLines(tag, new String[]{"\n"}, false);
         Timber.tag(tag).i(REQUEST_UP_LINE);
         logLines(tag, new String[]{URL_TAG + request.url()}, false);
         logLines(tag, getRequest(request), true);
@@ -104,15 +106,15 @@ public class DefaultFormatPrinter implements FormatPrinter {
     /**
      * 打印网络响应信息, 当网络响应时 {{@link okhttp3.ResponseBody}} 可以解析的情况
      *
-     * @param chainMs 服务器响应耗时(单位毫秒)
+     * @param chainMs      服务器响应耗时(单位毫秒)
      * @param isSuccessful 请求是否成功
-     * @param code 响应码
-     * @param headers 请求头
-     * @param contentType 服务器返回数据的数据类型
-     * @param bodyString 服务器返回的数据(已解析)
-     * @param segments 域名后面的资源地址
-     * @param message 响应信息
-     * @param responseUrl 请求地址
+     * @param code         响应码
+     * @param headers      请求头
+     * @param contentType  服务器返回数据的数据类型
+     * @param bodyString   服务器返回的数据(已解析)
+     * @param segments     域名后面的资源地址
+     * @param message      响应信息
+     * @param responseUrl  请求地址
      */
     @Override
     public void printJsonResponse(long chainMs, boolean isSuccessful, int code, String headers, MediaType contentType,
@@ -124,7 +126,7 @@ public class DefaultFormatPrinter implements FormatPrinter {
         final String tag = getTag(false);
         final String[] urlLine = {URL_TAG + responseUrl, N};
 
-        Timber.tag(tag).i(RESPONSE_UP_LINE);
+        Timber.tag(tag).i(LINE_SEPARATOR + RESPONSE_UP_LINE);
         logLines(tag, urlLine, true);
         logLines(tag, getResponse(headers, chainMs, code, isSuccessful, segments, message), true);
         logLines(tag, responseBody.split(LINE_SEPARATOR), true);
@@ -134,13 +136,13 @@ public class DefaultFormatPrinter implements FormatPrinter {
     /**
      * 打印网络响应信息, 当网络响应时 {{@link okhttp3.ResponseBody}} 为 {@code null} 或不可解析的情况
      *
-     * @param chainMs 服务器响应耗时(单位毫秒)
+     * @param chainMs      服务器响应耗时(单位毫秒)
      * @param isSuccessful 请求是否成功
-     * @param code 响应码
-     * @param headers 请求头
-     * @param segments 域名后面的资源地址
-     * @param message 响应信息
-     * @param responseUrl 请求地址
+     * @param code         响应码
+     * @param headers      请求头
+     * @param segments     域名后面的资源地址
+     * @param message      响应信息
+     * @param responseUrl  请求地址
      */
     @Override
     public void printFileResponse(long chainMs, boolean isSuccessful, int code, String headers,
@@ -148,7 +150,7 @@ public class DefaultFormatPrinter implements FormatPrinter {
         final String tag = getTag(false);
         final String[] urlLine = {URL_TAG + responseUrl, N};
 
-        Timber.tag(tag).i(RESPONSE_UP_LINE);
+        Timber.tag(tag).i(LINE_SEPARATOR + RESPONSE_UP_LINE);
         logLines(tag, urlLine, true);
         logLines(tag, getResponse(headers, chainMs, code, isSuccessful, segments, message), true);
         logLines(tag, OMITTED_RESPONSE, true);

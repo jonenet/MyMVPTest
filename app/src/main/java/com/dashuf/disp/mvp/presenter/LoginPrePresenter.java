@@ -12,6 +12,7 @@ import com.jess.arms.mvp.IView;
 import com.jess.arms.mvp.Message;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
@@ -33,9 +34,11 @@ public class LoginPrePresenter extends BaseSimplePresenter<IView> {
         RetrofitUrlManager.getInstance().putDomain("dashboard", Api.APP_DASHBOARD);
         Map<String, String> params = getParams((Map<String, String>) message.obj);
         Observable<ResultBean<LoginBean>> listObservable = mAppComponent.repositoryManager().obtainRetrofitService(UserService.class).doLogin(params);
+        Timber.i( "TIME_START = " + System.currentTimeMillis());
         doBefore(mRootView, listObservable).subscribe(new ErrorHandleSubscriber<ResultBean<LoginBean>>(mAppComponent.rxErrorHandler()) {
             @Override
             public void onNext(ResultBean<LoginBean> result) {
+                Timber.i( "TIME_END = " + System.currentTimeMillis());
                 if (result.isSuccess()) {
                     LoginBean loginBean = result.getData();
                     String token = loginBean.getToken();
@@ -44,10 +47,23 @@ public class LoginPrePresenter extends BaseSimplePresenter<IView> {
                     }
                     message.what = 1;
                     message.handleMessageToTarget();
+                } else {
+                    message.what = 1;
+                    message.handleMessageToTarget();
+                    if (null != mRootView) {
+                        mRootView.showMessage(result.getMessage());
+                    }
                 }
-                Timber.i("result = %s", result.toString());
+            }
+
+            @Override
+            public void onError(Throwable t) {
+                super.onError(t);
+                Timber.i("result = %s", "onError");
             }
         });
+
+
     }
 
 
