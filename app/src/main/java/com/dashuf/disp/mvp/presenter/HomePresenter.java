@@ -5,6 +5,7 @@ import com.dashuf.disp.mvp.api.service.UserService;
 import com.dashuf.disp.mvp.model.entity.HomeBean;
 import com.dashuf.disp.mvp.model.entity.ResultBean;
 import com.dashuf.disp.mvp.views.iview.IHomeView;
+import com.dashuf.disp.utils.RxTransfer;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.di.scope.FragmentScope;
 import com.jess.arms.mvp.BaseSimplePresenter;
@@ -36,7 +37,9 @@ public class HomePresenter extends BaseSimplePresenter {
         Map<String, String> params = getParams(message);
         Observable<ResultBean<HomeBean>> listObservable = mAppComponent.repositoryManager().obtainRetrofitService(UserService.class).getHomeData(params);
         IHomeView moreView = (IHomeView) this.mRootView;
-        doBefore(this.mRootView, listObservable).subscribe(new ErrorHandleSubscriber<ResultBean<HomeBean>>(mAppComponent.rxErrorHandler()) {
+        listObservable.compose(RxTransfer.doBefore(mRootView, this))
+//        doBefore(this.mRootView, listObservable)
+                .subscribe(new ErrorHandleSubscriber<ResultBean<HomeBean>>(mAppComponent.rxErrorHandler()) {
             @Override
             public void onNext(ResultBean<HomeBean> result) {
                 if (result.isSuccess()) {

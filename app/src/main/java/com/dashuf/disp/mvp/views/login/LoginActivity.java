@@ -35,6 +35,7 @@ import com.jess.arms.base.BaseSimpleActivity;
 import com.jess.arms.mvp.IView;
 import com.jess.arms.mvp.Message;
 import com.jess.arms.utils.ArmsUtils;
+import com.jess.arms.utils.RxUtils;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.rengwuxian.materialedittext.validation.METValidator;
 
@@ -53,7 +54,10 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.xiaoneng.uiutils.ToastUtils;
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
 /**
@@ -119,7 +123,6 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
             launchActivity(new Intent(this, HomeActivity.class));
         }
     }
-
 
 
     @Nullable
@@ -198,12 +201,19 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
     }
 
     private void login() {
-        Observable.interval(0,2, TimeUnit.SECONDS).subscribe(new Consumer<Long>() {
-            @Override
-            public void accept(Long aLong) throws Exception {
-                System.out.println("Along = " +aLong);
-            }
-        });
+//        Observable.interval(0,2, TimeUnit.SECONDS).subscribe(new Consumer<Long>() {
+//            @Override
+//            public void accept(Long aLong) throws Exception {
+//                System.out.println("Along = " +aLong);
+//            }
+//        });
+//        RxUtils.test(new RxUtils.IUiTask() {
+//            @Override
+//            public void runOnUiThread() {
+//                System.out.println(Thread.currentThread().getName());
+//            }
+//        });
+//        RxUtils.testSubscribe();
         if (mobile.validate() && password.validate() && (loginType == LOGINTYPE_ACCONT) ||
                 optMobile.validate() && password_opt.validate() && (loginType == LOGINTYPE_OPT)) {
             Map<String, String> params = new HashMap<>();
@@ -223,7 +233,7 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
                     params.put("loginType", "002");
                 }
             }
-//            mPresenter.doLogin(Message.obtain(this, params));
+            mPresenter.doLogin(Message.obtain(this, params));
 
         }
     }
@@ -437,7 +447,7 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
 
     @Override
     public void hideLoading() {
-
+        Log.i(TAG, "hideLoading ");
     }
 
     @Override

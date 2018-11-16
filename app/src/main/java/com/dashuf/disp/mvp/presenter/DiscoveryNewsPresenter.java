@@ -7,6 +7,7 @@ import com.dashuf.disp.mvp.api.service.UserService;
 import com.dashuf.disp.mvp.model.entity.DiscoveryNewsBean;
 import com.dashuf.disp.mvp.model.entity.LoginBean;
 import com.dashuf.disp.mvp.model.entity.ResultBean;
+import com.dashuf.disp.utils.RxTransfer;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.di.scope.ActivityScope;
 import com.jess.arms.mvp.BaseSimplePresenter;
@@ -39,7 +40,9 @@ public class DiscoveryNewsPresenter extends BaseSimplePresenter<IDiscoveryNewsVi
     public void requestPageDetail(Map<String, String> params) {
         RetrofitUrlManager.getInstance().putDomain("dashboard", Api.APP_DASHBOARD);
         Observable<ResultBean<DiscoveryNewsBean>> listObservable = mAppComponent.repositoryManager().obtainRetrofitService(UserService.class).getNewsPageDetail(getParams(params));
-        doBefore(mRootView, listObservable).subscribe(new ErrorHandleSubscriber<ResultBean<DiscoveryNewsBean>>(mAppComponent.rxErrorHandler()) {
+//        doBefore(mRootView, listObservable)
+        listObservable.compose(RxTransfer.doBefore(mRootView, this))
+                .subscribe(new ErrorHandleSubscriber<ResultBean<DiscoveryNewsBean>>(mAppComponent.rxErrorHandler()) {
             @Override
             public void onNext(ResultBean<DiscoveryNewsBean> result) {
                 if (result.isSuccess()) {

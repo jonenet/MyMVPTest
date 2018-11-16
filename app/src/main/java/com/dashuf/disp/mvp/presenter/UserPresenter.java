@@ -141,30 +141,30 @@ public class UserPresenter extends BaseSimplePresenter<IMoreView> {
                                 });
                     }
                 });
-        doBefore(mRootView, listObservable, disposable -> {
-            addDispose(disposable);
-            if (pullToRefresh)
-                mRootView.showLoading();//显示下拉刷新的进度条
-            else
-                mRootView.startLoadMore();//显示上拉加载更多的进度条
-        }, () -> {
-            if (pullToRefresh)
-                mRootView.hideLoading();//隐藏下拉刷新的进度条
-            else
-                mRootView.endLoadMore();//隐藏上拉加载更多的进度条
-        }).subscribe(new ErrorHandleSubscriber<List<User>>(mErrorHandler) {
-            @Override
-            public void onNext(List<User> users) {
-                lastUserId = users.get(users.size() - 1).getId();//记录最后一个id,用于下一次请求
-                if (pullToRefresh) mUsers.clear();//如果是下拉刷新则清空列表
-                preEndIndex = mUsers.size();//更新之前列表总长度,用于确定加载更多的起始位置
-                mUsers.addAll(users);
-                if (pullToRefresh)
-                    mAdapter.notifyDataSetChanged();
-                else
-                    mAdapter.notifyItemRangeInserted(preEndIndex, users.size());
-            }
-        });
+//        doBefore(mRootView, listObservable, disposable -> {
+//            addDispose(disposable);
+//            if (pullToRefresh)
+//                mRootView.showLoading();//显示下拉刷新的进度条
+//            else
+//                mRootView.startLoadMore();//显示上拉加载更多的进度条
+//        }, () -> {
+//            if (pullToRefresh)
+//                mRootView.hideLoading();//隐藏下拉刷新的进度条
+//            else
+//                mRootView.endLoadMore();//隐藏上拉加载更多的进度条
+//        }).subscribe(new ErrorHandleSubscriber<List<User>>(mErrorHandler) {
+//            @Override
+//            public void onNext(List<User> users) {
+//                lastUserId = users.get(users.size() - 1).getId();//记录最后一个id,用于下一次请求
+//                if (pullToRefresh) mUsers.clear();//如果是下拉刷新则清空列表
+//                preEndIndex = mUsers.size();//更新之前列表总长度,用于确定加载更多的起始位置
+//                mUsers.addAll(users);
+//                if (pullToRefresh)
+//                    mAdapter.notifyDataSetChanged();
+//                else
+//                    mAdapter.notifyItemRangeInserted(preEndIndex, users.size());
+//            }
+//        });
     }
 
 

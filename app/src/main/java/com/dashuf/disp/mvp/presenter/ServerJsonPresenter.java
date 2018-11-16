@@ -34,18 +34,18 @@ public class ServerJsonPresenter extends BaseSimplePresenter<IView> {
     }
 
     public void start() {
-        RetrofitUrlManager.getInstance().putDomain("douban", Api.APP_SERVER_JSON);
-        Observable<List<PostTestBean>> listObservable = appComponent.repositoryManager().obtainRetrofitService(UserService.class).postTest();
-        doBefore(mRootView, listObservable, disposable -> {
-            addDispose(disposable);
-            Timber.tag(TAG).i("start");
-        }, () -> {
-            Timber.tag(TAG).i("end");
-        }).subscribe(new ErrorHandleSubscriber<List<PostTestBean>>(appComponent.rxErrorHandler()) {
-            @Override
-            public void onNext(List<PostTestBean> result) {
-                Timber.tag(TAG).i("result = " + result);
-            }
-        });
+//        RetrofitUrlManager.getInstance().putDomain("douban", Api.APP_SERVER_JSON);
+//        Observable<List<PostTestBean>> listObservable = appComponent.repositoryManager().obtainRetrofitService(UserService.class).postTest();
+//        doBefore(mRootView, listObservable, disposable -> {
+//            addDispose(disposable);
+//            Timber.tag(TAG).i("start");
+//        }, () -> {
+//            Timber.tag(TAG).i("end");
+//        }).subscribe(new ErrorHandleSubscriber<List<PostTestBean>>(appComponent.rxErrorHandler()) {
+//            @Override
+//            public void onNext(List<PostTestBean> result) {
+//                Timber.tag(TAG).i("result = " + result);
+//            }
+//        });
     }
 }

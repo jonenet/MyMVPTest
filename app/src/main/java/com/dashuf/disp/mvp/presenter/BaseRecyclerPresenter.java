@@ -4,6 +4,7 @@ package com.dashuf.disp.mvp.presenter;
 import com.dashuf.disp.mvp.api.Api;
 import com.dashuf.disp.mvp.api.service.UserService;
 import com.dashuf.disp.mvp.model.entity.ResultBean;
+import com.dashuf.disp.utils.RxTransfer;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.di.scope.FragmentScope;
 import com.jess.arms.mvp.BaseSimplePresenter;
@@ -36,7 +37,9 @@ public class BaseRecyclerPresenter extends BaseSimplePresenter<IView> {
         RetrofitUrlManager.getInstance().putDomain("dashboard", Api.APP_DASHBOARD);
         Map<String, String> params = getParams((Map<String, String>) message.obj);
         Observable<String> listObservable = mAppComponent.repositoryManager().obtainRetrofitService(UserService.class).getRecyclerList(params);
-        doBefore(mRootView, listObservable).subscribe(new ErrorHandleSubscriber<String>(mAppComponent.rxErrorHandler()) {
+        listObservable.compose(RxTransfer.doBefore(mRootView, this))
+//        doBefore(mRootView, listObservable)
+                .subscribe(new ErrorHandleSubscriber<String>(mAppComponent.rxErrorHandler()) {
             @Override
             public void onNext(String result) {
                 message.what = Api.TAG_ONE;
