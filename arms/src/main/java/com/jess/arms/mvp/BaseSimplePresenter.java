@@ -192,44 +192,43 @@ public class BaseSimplePresenter<V extends IView> implements IPresenter, Lifecyc
         }
     }
 
-    /**
-     * @param rootView   视图
-     * @param observable 请求
-     * @param consumer   请求前
-     * @param fina       请求后
-     */
-    protected <T> Observable<T> doBefore(IView rootView, Observable<T> observable, Consumer<? super Disposable> consumer, Action fina) {
-        return observable.subscribeOn(Schedulers.io())
-//                .retryWhen(new RetryWithDelay(3, 2))
-                .doOnSubscribe(consumer)
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(fina)
-                .compose(RxLifecycleUtils.bindToLifecycle(rootView));//使用 Rxlifecycle,使 Disposable 和 Activity 一起销毁
-    }
+//    /**
+//     * @param rootView   视图
+//     * @param observable 请求
+//     * @param consumer   请求前
+//     * @param fina       请求后
+//     */
+//    protected <T> Observable<T> doBefore(IView rootView, Observable<T> observable, Consumer<? super Disposable> consumer, Action fina) {
+//        return observable.subscribeOn(Schedulers.io())
+////                .retryWhen(new RetryWithDelay(3, 2))
+//                .doOnSubscribe(consumer)
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doFinally(fina)
+//                .compose(RxLifecycleUtils.bindToLifecycle(rootView));//使用 Rxlifecycle,使 Disposable 和 Activity 一起销毁
+//    }
 
-    protected <T> Observable<T> doBefore(IView rootView, Observable<T> observable) {
-        return observable.subscribeOn(Schedulers.io())
-                .retryWhen(new RetryWithDelay(3, 2))
-                .doOnSubscribe(disposable -> {
-                    addDispose(disposable);
-                    rootView.showLoading();
-                })
-                .subscribeOn(AndroidSchedulers.mainThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doFinally(new Action() {
-                    @Override
-                    public void run() throws Exception {
-                        rootView.hideLoading();
-                    }
-                })
-                .compose(RxLifecycleUtils.bindToLifecycle(rootView));//使用 Rxlifecycle,使 Disposable 和 Activity 一起销毁
-    }
+//    protected <T> Observable<T> doBefore(IView rootView, Observable<T> observable) {
+//        return observable.subscribeOn(Schedulers.io())
+//                .retryWhen(new RetryWithDelay(3, 2))
+//                .doOnSubscribe(disposable -> {
+//                    addDispose(disposable);
+//                    rootView.showLoading();
+//                })
+//                .subscribeOn(AndroidSchedulers.mainThread())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .doFinally(new Action() {
+//                    @Override
+//                    public void run() throws Exception {
+//                        rootView.hideLoading();
+//                    }
+//                })
+//                .compose(RxLifecycleUtils.bindToLifecycle(rootView));//使用 Rxlifecycle,使 Disposable 和 Activity 一起销毁
+//    }
 
 
     public Map<String, String> getParams(Map<String, String> params) {
         if (null != params) {
-            RSAEncryptor rsaEncryptor = null;
+            RSAEncryptor rsaEncryptor;
             try {
                 rsaEncryptor = new RSAEncryptor();
                 params.put("timeset", rsaEncryptor.encryptWithBase64("" + System.currentTimeMillis()));

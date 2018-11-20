@@ -201,12 +201,6 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
     }
 
     private void login() {
-//        Observable.interval(0,2, TimeUnit.SECONDS).subscribe(new Consumer<Long>() {
-//            @Override
-//            public void accept(Long aLong) throws Exception {
-//                System.out.println("Along = " +aLong);
-//            }
-//        });
 //        RxUtils.test(new RxUtils.IUiTask() {
 //            @Override
 //            public void runOnUiThread() {
@@ -226,10 +220,6 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
                     ArmsUtils.makeText(this.getApplicationContext(), "请认真阅读用户协议后登录");
                     return;
                 } else {
-//                          mPresenter.doOptLogin(optMobile.getText().toString(), password_opt.getText().toString(), "002"
-//                            , UserSettingProvider.provider().getUserLocationProvice()
-//                            , UserSettingProvider.provider().getUserLocationCity()
-//                            , UserSettingProvider.provider().getUserLocationCityId());
                     params.put("loginType", "002");
                 }
             }

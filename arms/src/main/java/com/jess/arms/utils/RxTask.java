@@ -4,6 +4,7 @@ import android.util.SparseArray;
 
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import rx.Observable;
 import rx.Subscriber;
 import rx.Subscription;

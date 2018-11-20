@@ -38,7 +38,6 @@ public class LoginPrePresenter extends BaseSimplePresenter<IView> {
         Map<String, String> params = getParams((Map<String, String>) message.obj);
         Observable<ResultBean<LoginBean>> listObservable = mAppComponent.repositoryManager().obtainRetrofitService(UserService.class).doLogin(params);
         Timber.i("TIME_START = " + System.currentTimeMillis());
-
         listObservable.compose(RxTransfer.doBefore(mRootView, this))
                 .subscribe(new ErrorHandleSubscriber<ResultBean<LoginBean>>(mAppComponent.rxErrorHandler()) {
                     @Override
