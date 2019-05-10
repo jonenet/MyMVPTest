@@ -12,10 +12,6 @@ import com.example.gddemo.entity.Student;
 import com.example.gddemo.entity.StudentAndTeacherBean;
 import com.example.gddemo.entity.Teacher;
 
-import org.greenrobot.greendao.query.DeleteQuery;
-import org.greenrobot.greendao.query.QueryBuilder;
-import org.greenrobot.greendao.query.WhereCondition;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -64,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
             student.setGrade(String.valueOf(age % 10) + "年纪");
             student.setSchoolName("schoolName" + i);
             daoSession.insertOrReplace(student);//插入或替换
+
+
         }
     }
 
