@@ -86,13 +86,8 @@ dependencies {
     testImplementation rootProject.ext.dependencies["canary-release"]
 
     api project(':arms')
-    api project(':ahbottomnavigation-release')
-    api project(':rollviewpager-release')
     api project(':refresh-layout')
-    api project(':easyrecyclerview')
-    api project(':xiaonengChatUI')
     implementation rootProject.ext.dependencies["materialedittext"]
     implementation rootProject.ext.dependencies["youthbanner"]
     implementation rootProject.ext.dependencies["vlayout"]
-//    implementation rootProject.ext.dependencies["ahbottomnavigation"]
 }

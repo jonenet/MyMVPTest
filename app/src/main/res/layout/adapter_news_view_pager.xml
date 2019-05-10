@@ -22,7 +22,7 @@
   ~ SOFTWARE.
   -->
 
-<com.jude.rollviewpager.RollPagerView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/banner_pager_news"
     android:layout_width="match_parent"
@@ -30,7 +30,5 @@
     android:background="@color/white"
     android:minHeight="100dp"
     android:visibility="visible"
-    app:rollviewpager_hint_gravity="center"
-    app:rollviewpager_hint_paddingBottom="@dimen/activity_horizontal_margin_small"
-    app:rollviewpager_play_delay="5000" />
+   />
 

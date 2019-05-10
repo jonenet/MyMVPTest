@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">评估神</string>
 
     <string name="action_cordova">Cordova</string>
@@ -106,110 +107,6 @@
     <string name="action_edit">修改</string>
     <string name="action_refuse">撤回</string>
     <string name="error_data">数据异常</string>
-
-    <!-- 贷款推荐 -->
-
-    <string name="action_loan_history_select_opration">选择你的操作</string>
-    <string name="action_check_loan_history_basicinfo">查看基本资料</string>
-    <string name="action_check_loan_history_authorize">查看征信授权</string>
-    <string name="action_check_loan_history_insurance_info">查看保险资料</string>
-    <string name="action_check_loan_history_academic_info">查看学历信息</string>
-    <string name="title_check_loan_history_basicinfo">客户基础信息</string>
-    <string name="title_check_loan_history_authorize">征信授权</string>
-    <string name="title_check_loan_history_insurance_info">客户保险信息</string>
-    <string name="title_check_loan_history_academic_info">客户学历信息</string>
-    <string name="action_revoke_loan_history">撤回</string>
-    <string name="action_cancel">取消</string>
-    <string name="action_loan">贷款推荐</string>
-    <string name="loan_step_1">扫描身份证</string>
-    <string name="loan_step_2">上传资料</string>
-    <string name="loan_step_3">补充信息</string>
-    <string name="action_ocr">扫描身份证</string>
-    <string name="tip_ocr">请根据提示依次扫描身份证正反面</string>
-    <string name="tip_ocr_IDCard">身份证正面</string>
-    <string name="tip_ocr_IDCard_back">身份证反面</string>
-    <string name="action_ocr_scan">开始扫描</string>
-    <string name="action_ocr_ensure">确认客户信息</string>
-    <string name="tip_ocr_scan">扫描身份证自动填写下列信息</string>
-    <string name="tip_ocr_ensure">请仔细比对客户信息，可点击修改</string>
-    <string name="tip_credit_report_switch">如有纸质征信报告，拍摄上传评估，效率更高、节省查询次数</string>
-    <string name="promot_credit_report_switch">是否拍摄上传纸质征信报告</string>
-    <string name="prompt_name">姓名</string>
-    <string name="prompt_ID_number">身份证号码</string>
-    <string name="prompt_sex">性别</string>
-    <string name="prompt_nationality">民族</string>
-    <string name="prompt_birthday">出生日期</string>
-    <string name="prompt_address">住址</string>
-    <string name="prompt_grant_dept">发证机关</string>
-    <string name="prompt_expiry_date">有效期至</string>
-    <string name="prompt_applications_bank">申请银行</string>
-    <string name="prompt_applications_interview">面签中心</string>
-    <string name="prompt_custmer_marriage_state">婚姻状况</string>
-    <string name="action_submit">提交</string>
-    <string-array name="custmer_marriage_state">
-        <item>未婚</item>
-        <item>已婚</item>
-        <item>离异</item>
-        <item>   </item>
-    </string-array>
-    <string name="prompt_custmer_applyer">申请机构</string>
-    <string name="prompt_custmer_mobile">客户手机</string>
-    <string name="prompt_business_city">业务城市</string>
-    <string name="prompt_custmer_type">客户类型</string>
-    <string name="prompt_profession">职业</string>
-    <string name="prompt_grade">级别</string>
-    <string-array name="grade">
-        <item>初级</item>
-        <item>中级</item>
-        <item>高级</item>
-        <item>   </item>
-    </string-array>
-
-    <string name="action_photo">拍摄资料影像</string>
-    <!--<string name="tip_photo">请拍摄原件,复印件、扫描件无法通过审核哦。</string>-->
-    <string name="tip_photo">请使用原件拍照</string>
-    <string name="tip_photo2">再次点击按钮可重新拍摄</string>
-    <string name="photo_name">资料名称</string>
-    <string name="action_preview">预览</string>
-    <string name="action_take_photo">拍摄</string>
-    <string name="restart_take_photo">重新拍摄</string>
-    <string name="user_photo">使用照片</string>
-    <string name="title_photo">拍照</string>
-    <string name="title_example">示例</string>
-    <string name="title_photo_example">照片示例</string>
-
-    <string name="action_edit_insurance_info">补充保险单</string>
-    <string name="prompt_insurance_amount">年缴保费</string>
-    <string name="prompt_insurance_amount_unit">元</string>
-    <string name="prompt_insurance_company">公司</string>
-    <string name="action_add_insurance_info">添加保单</string>
-    <string name="action_edit_academic_info">补充学历信息</string>
-    <string name="prompt_education_diploma">学历</string>
-    <string name="prompt_education_degree">学位</string>
-    <string name="prompt_graduate_school_area">毕业院校地区</string>
-    <string name="prompt_graduate_school">毕业院校</string>
-    <string name="prompt_graduate_date">毕业时间</string>
-
-    <string-array name="education_degree">
-        <item>学士</item>
-        <item>硕士</item>
-        <item>博士</item>
-    </string-array>
-    <string-array name="education_degree_code">
-        <item>BACHELOR</item>
-        <item>MASTER</item>
-        <item>DOCTOR</item>
-    </string-array>
-    <string-array name="education_diploma">
-        <item>本科</item>
-        <item>硕士研究生</item>
-        <item>博士研究生</item>
-    </string-array>
-    <string-array name="education_diploma_code">
-        <item>UNDERGRADUATE</item>
-        <item>GRADUATE</item>
-        <item>DOCTOR</item>
-    </string-array>
 
     <!-- 发现 -->
     <string name="action_business_guie">影像资料示例</string>
@@ -700,7 +597,7 @@
     <string name="loan_declaration">评估神仅提供产品匹配、推荐等科技信息咨询服务，贷款签约、审核、放款由金融机构直接提供</string>
     <string name="user_account">用户名</string>
     <string name="action_done">完成</string>
-    <string name="welcome_login_app">欢迎登录评估神</string>
+    <string name="welcome_login_app">欢迎登录</string>
     <string name="wechat_login">微信登录</string>
     <string name="cause_of_return">退回原因：</string>
     <string name="not_new_version">无版本更新</string>

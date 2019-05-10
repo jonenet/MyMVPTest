@@ -26,14 +26,9 @@ import com.dashuf.disp.mvp.model.entity.HomeTabBean;
 import com.dashuf.disp.mvp.presenter.HomePresenter;
 import com.dashuf.disp.mvp.views.HomeActivity;
 import com.dashuf.disp.mvp.views.iview.IHomeView;
-import com.dashuf.disp.mvp.views.test.IMoreView;
-import com.jess.arms.base.App;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.base.BaseDaggerFragment;
-import com.jess.arms.base.BaseSimpleFragment;
 import com.jess.arms.di.component.AppComponent;
-import com.jess.arms.mvp.IView;
-import com.jess.arms.mvp.Message;
 import com.jess.arms.utils.StatusBarUtil;
 import com.jess.arms.widget.BadgeView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -50,8 +45,6 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import cn.xiaoneng.uiapi.Ntalker;
-import cn.xiaoneng.uiapi.OnUnreadmsgListener;
 
 /**
  * Created by ex-zhoulai on 2018/5/29.
@@ -261,18 +254,6 @@ public class HomeFragment6 extends BaseDaggerFragment<HomePresenter> implements 
 
     private void getUnReadMsg() {
         //小能客服的登陆在‘我的’界面点击进入客服的时候，这里是十分钟的时间回调消息，十分钟之后通过推送来进行获取未读消息
-        Ntalker.getExtendInstance().message().setOnUnreadmsgListener(new OnUnreadmsgListener() {
-            @Override
-            public void onUnReadMsg(String settingId, String username, String msgContent, final int messageCount) {
-                mContext.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        homeTabBeanList.get(1).setMsgSize(messageCount);
-                        homeTabAdapter.notifyDataSetChanged();
-                    }
-                });
-            }
-        });
     }
 
     @Override

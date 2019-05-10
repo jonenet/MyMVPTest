@@ -1,1 +1,6 @@
-include ':arms', ':app', ':materialedittext-release', ':ahbottomnavigation-release', ':refresh-layout', ':rollviewpager-release', ':easyrecyclerview', ':xiaonengChatUI', ':PUSH-MEIZU-SDK-internal-publish', ':lib', ':gddemo'
+include  ':arms'
+include  ':materialedittext-release'
+include  ':app'
+include  ':refresh-layout'
+//include  ':gddemo'
+//include ':lib'

@@ -1,9 +1,7 @@
 package com.dashuf.disp.mvp.views.home;
 
 import android.content.Context;
-import android.database.DataSetObserver;
-import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,13 +14,11 @@ import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.dashuf.disp.R;
 import com.dashuf.disp.mvp.model.entity.HomeBean;
-import com.dashuf.disp.widget.MyPointHintView;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.http.imageloader.ImageLoader;
 import com.jess.arms.http.imageloader.glide.ImageConfigImpl;
 import com.jess.arms.utils.ArmsUtils;
-import com.jude.rollviewpager.RollPagerView;
 
 import java.util.List;
 
@@ -74,36 +70,36 @@ public class HomeBannerAdapter6 extends DelegateAdapter.Adapter<RecyclerView.Vie
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder.itemView instanceof RollPagerView) {
-            RollPagerView viewPager = (RollPagerView) holder.itemView;
-            if (positionTop.size() > 1) {
-                viewPager.setPlayDelay(5000);
-                viewPager.setAnimationDurtion(2000);
-                viewPager.setHintView(new MyPointHintView(context, ContextCompat.getColor(context, R.color.white), ContextCompat.getColor(context, R.color.white_bg_trans)));
-            } else {
-                viewPager.pause();
-                viewPager.setHintView(new MyPointHintView(context, ContextCompat.getColor(context, R.color.transparent), Color.WHITE));
-            }
+//        if (holder.itemView instanceof RollPagerView) {
+////            RollPagerView viewPager = (RollPagerView) holder.itemView;
+//            if (positionTop.size() > 1) {
+//                viewPager.setPlayDelay(5000);
+//                viewPager.setAnimationDurtion(2000);
+//                viewPager.setHintView(new MyPointHintView(context, ContextCompat.getColor(context, R.color.white), ContextCompat.getColor(context, R.color.white_bg_trans)));
+//            } else {
+//                viewPager.pause();
+//                viewPager.setHintView(new MyPointHintView(context, ContextCompat.getColor(context, R.color.transparent), Color.WHITE));
+//            }
 
 
-            int phoneWidth = ArmsUtils.getScreenWidth(viewPager.getContext());
-            ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
-            layoutParams.height = (phoneWidth * 179 / 375);
-            viewPager.setLayoutParams(layoutParams);
-
-            if (null == pagerAdapter) {
-                pagerAdapter = new PagerAdapter(context, viewPager, positionTop, this, viewPool);
-                viewPager.setAdapter(pagerAdapter);
-                pagerAdapter.registerDataSetObserver(new DataSetObserver() {
-                    @Override
-                    public void onChanged() {
-                        super.onChanged();
-                    }
-                });
-            } else {
-                pagerAdapter.notifyDataSetChanged();
-            }
-        }
+//            int phoneWidth = ArmsUtils.getScreenWidth(viewPager.getContext());
+//            ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+//            layoutParams.height = (phoneWidth * 179 / 375);
+//            viewPager.setLayoutParams(layoutParams);
+//
+//            if (null == pagerAdapter) {
+//                pagerAdapter = new PagerAdapter(context, viewPager, positionTop, this, viewPool);
+//                viewPager.setAdapter(pagerAdapter);
+//                pagerAdapter.registerDataSetObserver(new DataSetObserver() {
+//                    @Override
+//                    public void onChanged() {
+//                        super.onChanged();
+//                    }
+//                });
+//            } else {
+//                pagerAdapter.notifyDataSetChanged();
+//            }
+//        }
     }
 
 
@@ -125,7 +121,7 @@ public class HomeBannerAdapter6 extends DelegateAdapter.Adapter<RecyclerView.Vie
         private final ImageLoader imageLoader;
 
 
-        public PagerAdapter(Context context, RollPagerView viewPager, List<HomeBean.BannerBean> positionTop, RecyclerView.Adapter<RecyclerView.ViewHolder> bannerAdapter, RecyclerView.RecycledViewPool viewPool) {
+        public PagerAdapter(Context context, ViewPager viewPager, List<HomeBean.BannerBean> positionTop, RecyclerView.Adapter<RecyclerView.ViewHolder> bannerAdapter, RecyclerView.RecycledViewPool viewPool) {
             super(bannerAdapter, viewPool, viewPager);
             this.context = context;
             this.positionTop = positionTop;

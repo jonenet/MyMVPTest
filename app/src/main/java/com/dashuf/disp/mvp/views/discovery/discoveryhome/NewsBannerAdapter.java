@@ -1,7 +1,5 @@
 package com.dashuf.disp.mvp.views.discovery.discoveryhome;
 
-import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +13,6 @@ import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.bumptech.glide.Glide;
 import com.dashuf.disp.R;
 import com.dashuf.disp.mvp.model.entity.DiscoveryNewsBean;
-import com.dashuf.disp.widget.MyPointHintView;
-import com.jess.arms.utils.ArmsUtils;
-import com.jude.rollviewpager.RollPagerView;
 
 import java.util.List;
 
@@ -62,29 +57,29 @@ public class NewsBannerAdapter extends DelegateAdapter.Adapter<NewsBannerAdapter
 
     @Override
     public void onBindViewHolder(BannerViewHolder holder, int position) {
-        RollPagerView viewPager = (RollPagerView) holder.itemView;
-        if (positionTop.size() > 1) {
-            viewPager.setPlayDelay(5000);
-            viewPager.setAnimationDurtion(2000);
-            viewPager.setHintView(new MyPointHintView(viewPager.getContext(), ContextCompat.getColor(viewPager.getContext(), R.color.white), ContextCompat.getColor(viewPager.getContext(), R.color.white_bg_trans)));
-        } else {
-            viewPager.pause();
-            viewPager.setHintView(new MyPointHintView(viewPager.getContext(), ContextCompat.getColor(viewPager.getContext(), R.color.transparent), Color.WHITE));
-        }
-
-
-        viewPager.setPlayDelay(5000);
-        viewPager.setAnimationDurtion(2000);
-        int phoneWidth = ArmsUtils.getScreenWidth(viewPager.getContext());
-        ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
-        layoutParams.height = phoneWidth * 2 / 5;
-        viewPager.setLayoutParams(layoutParams);
-        if (null == pagerAdapter) {
-            pagerAdapter = new PagerAdapter(positionTop, this, viewPool);
-            viewPager.setAdapter(pagerAdapter);
-        } else {
-            pagerAdapter.notifyDataSetChanged();
-        }
+//        RollPagerView viewPager = (RollPagerView) holder.itemView;
+//        if (positionTop.size() > 1) {
+//            viewPager.setPlayDelay(5000);
+//            viewPager.setAnimationDurtion(2000);
+//            viewPager.setHintView(new MyPointHintView(viewPager.getContext(), ContextCompat.getColor(viewPager.getContext(), R.color.white), ContextCompat.getColor(viewPager.getContext(), R.color.white_bg_trans)));
+//        } else {
+//            viewPager.pause();
+//            viewPager.setHintView(new MyPointHintView(viewPager.getContext(), ContextCompat.getColor(viewPager.getContext(), R.color.transparent), Color.WHITE));
+//        }
+//
+//
+//        viewPager.setPlayDelay(5000);
+//        viewPager.setAnimationDurtion(2000);
+//        int phoneWidth = ArmsUtils.getScreenWidth(viewPager.getContext());
+//        ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+//        layoutParams.height = phoneWidth * 2 / 5;
+//        viewPager.setLayoutParams(layoutParams);
+//        if (null == pagerAdapter) {
+//            pagerAdapter = new PagerAdapter(positionTop, this, viewPool);
+//            viewPager.setAdapter(pagerAdapter);
+//        } else {
+//            pagerAdapter.notifyDataSetChanged();
+//        }
 
     }
 

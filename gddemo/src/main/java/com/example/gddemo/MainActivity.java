@@ -3,7 +3,10 @@ package com.example.gddemo;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.example.gddemo.database.greenDao.db.DaoSession;
@@ -11,10 +14,6 @@ import com.example.gddemo.database.greenDao.db.StudentDao;
 import com.example.gddemo.entity.Student;
 import com.example.gddemo.entity.StudentAndTeacherBean;
 import com.example.gddemo.entity.Teacher;
-
-import org.greenrobot.greendao.query.DeleteQuery;
-import org.greenrobot.greendao.query.QueryBuilder;
-import org.greenrobot.greendao.query.WhereCondition;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,37 +34,50 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mRandom = new Random();
-        teacherList.add(new Teacher(1, 1, "tel1", "", "", "", ""));
-        teacherList.add(new Teacher(2, 2, "tel2", "", "", "", ""));
-        teacherList.add(new Teacher(3, 3, "tel3", "", "", "", ""));
-        teacherList.add(new Teacher(4, 4, "tel4", "", "", "", ""));
-        teacherList.add(new Teacher(5, 5, "tel5", "", "", "", ""));
-        teacherList.add(new Teacher(6, 6, "tel6", "", "", "", ""));
-        teacherList.add(new Teacher(7, 7, "tel7", "", "", "", ""));
+        HandlerThread handlerThread = new HandlerThread("test-thread");
+        handlerThread.start();
+        Handler handler = new Handler(handlerThread.getLooper());
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("TAG","threadName = " + Thread.currentThread().getName());
+            }
+        });
+
+//        mRandom = new Random();
+//        teacherList.add(new Teacher(1, 1, "tel1", "", "", "", ""));
+//        teacherList.add(new Teacher(2, 2, "tel2", "", "", "", ""));
+//        teacherList.add(new Teacher(3, 3, "tel3", "", "", "", ""));
+//        teacherList.add(new Teacher(4, 4, "tel4", "", "", "", ""));
+//        teacherList.add(new Teacher(5, 5, "tel5", "", "", "", ""));
+//        teacherList.add(new Teacher(6, 6, "tel6", "", "", "", ""));
+//        teacherList.add(new Teacher(7, 7, "tel7", "", "", "", ""));
     }
 
-    private void insertAllData() {
-        DaoSession daoSession = ((MyApplication) getApplication()).getDaoSession();
-        for (int i = 0; i < 1000; i++) {
-            Student student = new Student();
-            student.setStudentNo(i);
-            int age = mRandom.nextInt(10) + 10;
-            student.setAge(age);
-            student.setTelPhone("tel" + i);
-            String chineseName = "name" + i;
-            student.setName(chineseName);
-            if (i % 2 == 0) {
-                student.setSex("男");
-            } else {
-                student.setSex("女");
-            }
-            student.setAddress("address" + i);
-            student.setGrade(String.valueOf(age % 10) + "年纪");
-            student.setSchoolName("schoolName" + i);
-            daoSession.insertOrReplace(student);//插入或替换
-        }
-    }
+//    private void insertAllData() {
+//        DaoSession daoSession = ((MyApplication) getApplication()).getDaoSession();
+//        for (int i = 0; i < 1000; i++) {
+//            Student student = new Student();
+//            student.setStudentNo(i);
+//            int age = mRandom.nextInt(10) + 10;
+//            student.setAge(age);
+//            student.setTelPhone("tel" + i);
+//            String chineseName = "name" + i;
+//            student.setName(chineseName);
+//            if (i % 2 == 0) {
+//                student.setSex("男");
+//            } else {
+//                student.setSex("女");
+//            }
+//            student.setAddress("address" + i);
+//            student.setGrade(age % 10 + "年纪");
+//            student.setSchoolName("schoolName" + i);
+//            daoSession.insertOrReplace(student);//插入或替换
+//
+//
+//        }
+//    }
 
 
     /**
