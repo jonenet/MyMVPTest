@@ -46,7 +46,7 @@ public interface Cache<K, V> {
          * @return
          */
         @NonNull
-        Cache build(CacheType type);
+        Cache<String,Object> build(CacheType type);
     }
 
     /**

@@ -56,7 +56,7 @@ public class RepositoryManager implements IRepositoryManager {
     Cache.Factory mCachefactory;
     private Cache<String, Object> mRetrofitServiceCache;
     private Cache<String, Object> mCacheServiceCache;
-    private Cache<String, IModel> mRepositoryCache;
+    private Cache<String, Object> mRepositoryCache;
 
     @Inject
     public RepositoryManager() {

@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">评估神</string>
+    <string name="app_name_my">Exercise</string>
 
     <string name="action_cordova">Cordova</string>
     <string name="action_login">Login</string>
@@ -54,7 +54,7 @@
     <!-- Strings related to login -->
     <string name="prompt_email">手机号码</string>
     <string name="prompt_password">密码</string>
-    <string name="prompt_password_set">设置密码（8-20位字母、数字组合）</string>
+    <string name="prompt_password_set">设置密码（8–20位字母、数字组合）</string>
     <string name="action_sign_in">登录</string>
     <string name="action_enter">确认</string>
     <string name="action_next">下一步</string>
@@ -508,7 +508,7 @@
     <string name="a_label_enhance_sharp">增强并锐化</string>
     <string name="a_label_gray">灰度模式</string>
     <string name="a_label_white_black">黑白模式</string>
-    <string name="a_msg_working">处理中...</string>
+    <string name="a_msg_working">处理中…</string>
     <string name="a_label_back">返回</string>
     <string name="a_label_add_image">添加jpg 或  png图片</string>
     <string name="a_label_save">保存</string>
@@ -527,7 +527,7 @@
     <string name="cui_welcome_module_title">图像切边及增强V1.0</string>
     <string name="a_label_gallery">选图识别</string>
     <string name="a_label_captrue">拍照识别</string>
-    <string name="intsig_copyright">上海合合信息科技发展有限公司\n Copyright© 2009-2017 版权所有</string>
+    <string name="intsig_copyright">上海合合信息科技发展有限公司\n Copyright© 2009–2017 版权所有</string>
     <string name="cui_app_title">图像切边及增强</string>
     <string name="cui_dl_tips_take_photo">拍照识别</string>
     <string name="cui_dl_tips_pick_photo">选图识别</string>
@@ -570,13 +570,13 @@
     <string name="check_pwd">确认密码</string>
     <string name="input_old_pwd">输入旧密码</string>
     <string name="input_new_pwd">输入新密码</string>
-    <string name="input_new_pwd_et">6-20位字母、数字组合</string>
+    <string name="input_new_pwd_et">6–20位字母、数字组合</string>
 
     <string name="edit_nick_name">修改昵称</string>
     <string name="nick_name_tips">由2个以上12个以下字符组成</string>
     <string name="nick_name_toast">请输入2个以上12个以下字符</string>
     <string name="submit_thanks">立即提交，感谢反馈</string>
-    <string name="input_feedback">我们很希望收到你的意见...</string>
+    <string name="input_feedback">我们很希望收到你的意见…</string>
     <string name="title_select_city">选择城市</string>
     <string name="more">更多</string>
     <string name="home_easy_product_title">轻松推荐</string>

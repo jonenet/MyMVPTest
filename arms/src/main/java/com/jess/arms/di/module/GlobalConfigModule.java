@@ -23,11 +23,11 @@ import android.text.TextUtils;
 import com.bumptech.glide.Glide;
 import com.jess.arms.http.BaseUrl;
 import com.jess.arms.http.GlobalHttpHandler;
+import com.jess.arms.http.imageloader.BaseImageLoaderStrategy;
+import com.jess.arms.http.imageloader.glide.GlideImageLoaderStrategy;
 import com.jess.arms.http.log.DefaultFormatPrinter;
 import com.jess.arms.http.log.FormatPrinter;
 import com.jess.arms.http.log.RequestInterceptor;
-import com.jess.arms.http.imageloader.BaseImageLoaderStrategy;
-import com.jess.arms.http.imageloader.glide.GlideImageLoaderStrategy;
 import com.jess.arms.integration.cache.Cache;
 import com.jess.arms.integration.cache.CacheType;
 import com.jess.arms.integration.cache.LruCache;
@@ -204,7 +204,7 @@ public class GlobalConfigModule {
 
     @Singleton
     @Provides
-    FormatPrinter provideFormatPrinter(){
+    FormatPrinter provideFormatPrinter() {
         return mFormatPrinter == null ? new DefaultFormatPrinter() : mFormatPrinter;
     }
 
@@ -214,10 +214,10 @@ public class GlobalConfigModule {
         return mCacheFactory == null ? new Cache.Factory() {
             @NonNull
             @Override
-            public Cache build(CacheType type) {
+            public Cache<String, Object> build(CacheType type) {
                 //若想自定义 LruCache 的 size, 或者不想使用 LruCache, 想使用自己自定义的策略
                 //并使用 GlobalConfigModule.Builder#cacheFactory() 扩展
-                return new LruCache(type.calculateCacheSize(application));
+                return new LruCache<>(type.calculateCacheSize(application));
             }
         } : mCacheFactory;
     }
@@ -266,8 +266,7 @@ public class GlobalConfigModule {
         }
 
         public Builder addInterceptor(Interceptor interceptor) {//动态添加任意个interceptor
-            if (interceptors == null)
-                interceptors = new ArrayList<>();
+            if (interceptors == null) { interceptors = new ArrayList<>(); }
             this.interceptors.add(interceptor);
             return this;
         }
@@ -309,7 +308,7 @@ public class GlobalConfigModule {
             return this;
         }
 
-        public Builder formatPrinter(FormatPrinter formatPrinter){
+        public Builder formatPrinter(FormatPrinter formatPrinter) {
             this.formatPrinter = Preconditions.checkNotNull(formatPrinter, FormatPrinter.class.getCanonicalName() + "can not be null.");
             return this;
         }

@@ -6,15 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.InputType;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.UnderlineSpan;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -60,7 +54,7 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
     @BindView(R.id.iv_hide_pwd)
     ImageView iv_hide_pwd;
 
-    boolean hidePwd;
+    private boolean hidePwd;
 
 
     @Override
@@ -85,15 +79,10 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
-        SpannableString sps = new SpannableString(getResources().getString(R.string.action_agreement_all));
-        sps.setSpan(new UnderlineSpan(), 6, 22, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        sps.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.colorPrimary)), 6, 22, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); //设置背景色为青色
-//        tvTip.setText(sps);
         METValidator inviteCodeValidator = new METValidator("请输入11位手机号") {
             @Override
             public boolean isValid(@NonNull CharSequence text, boolean isEmpty) {
                 return checkCellPhone(text.toString());
-
             }
         };
         mobile.addValidator(inviteCodeValidator);
@@ -107,22 +96,6 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
             }
         };
         password.addValidator(otpValidator1);
-        password.setValidateOnFocusLost(false);
-        password.setOnEditorActionListener((v, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_SEND || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-                //防止按钮触发两次提交事件，仅在按钮up时提交，down时需返回true，否则不执行up。
-                if (event != null && event.getAction() == KeyEvent.ACTION_DOWN) {
-                    return true;
-                } else if (event != null && event.getAction() == KeyEvent.ACTION_UP) {
-                    login();
-                    return true;
-                }
-                login();
-                return true;
-            }
-            return false;
-        });
-
     }
 
     private void login() {
@@ -131,7 +104,6 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
             params.put("username", mobile.getText().toString());
             params.put("password", password.getText().toString());
             mPresenter.doLogin(Message.obtain(this, params));
-
         }
     }
 
