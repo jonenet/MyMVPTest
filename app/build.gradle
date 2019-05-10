@@ -54,6 +54,7 @@ android {
 
 buildscript {
     repositories {
+        google()
         jcenter()
     }
 }

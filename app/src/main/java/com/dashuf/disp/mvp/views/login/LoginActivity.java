@@ -24,7 +24,6 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dashuf.disp.R;
 import com.dashuf.disp.mvp.model.event.WxLoginEvent;
@@ -35,7 +34,6 @@ import com.jess.arms.base.BaseSimpleActivity;
 import com.jess.arms.mvp.IView;
 import com.jess.arms.mvp.Message;
 import com.jess.arms.utils.ArmsUtils;
-import com.jess.arms.utils.RxUtils;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.rengwuxian.materialedittext.validation.METValidator;
 
@@ -47,17 +45,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import cn.xiaoneng.uiutils.ToastUtils;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
 /**

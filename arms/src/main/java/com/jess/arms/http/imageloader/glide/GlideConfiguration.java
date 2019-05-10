@@ -31,8 +31,8 @@ import com.bumptech.glide.module.AppGlideModule;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.http.OkHttpUrlLoader;
 import com.jess.arms.http.imageloader.BaseImageLoaderStrategy;
-import com.jess.arms.utils.DataHelper;
 import com.jess.arms.utils.ArmsUtils;
+import com.jess.arms.utils.DataHelper;
 
 import java.io.File;
 import java.io.InputStream;

@@ -1,5 +1,7 @@
 package com.example.gddemo;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -204,7 +206,15 @@ public class MainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_add_all:
-                insertAllData();
+//                insertAllData();
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.VIEW");
+//                intent.setPackage("com.huge.tv");
+                //huijuejiatv://goodsdetails.html?action=goodsdetails&goods_id=3555
+                //huijuejiatv://goodsdetails.html?action=goodsdetails&goods_id=3555
+                startActivity(intent.setData(Uri.parse("huijuejiatv://goodsdetails.html?action=goodsdetails&goods_id=3555")));
+                long l = Long.parseLong("3479537532");
+                System.out.println("result = "+l);
                 break;
             case R.id.bt_delete_all:
                 deleteAll();

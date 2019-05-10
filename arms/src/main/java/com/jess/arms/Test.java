@@ -1,14 +1,10 @@
 package com.jess.arms;
 
-import com.jess.arms.utils.RxUtils;
-import com.jess.arms.utils.rxFun.MapFun;
-import com.jess.arms.utils.rxFun.MyOperator;
+import com.jess.arms.rxtest.Observable;
+import com.jess.arms.rxtest.Schedulers;
+import com.jess.arms.rxtest.Subscriber;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableOperator;
-import io.reactivex.Observer;
-import io.reactivex.functions.Consumer;
-import rx.Subscriber;
+
 
 /**
  * 作者:      周来
@@ -20,6 +16,40 @@ import rx.Subscriber;
 public class Test {
 
     public static void main(String[] args) {
+
+        Observable.create(new Observable.OnSubscribe<Integer>() {
+            @Override
+            public void call(Subscriber<? super Integer> subscriber) {
+                subscriber.onNext(1);
+            }
+        }).map(new Observable.Transformer<Integer, String>() {
+            @Override
+            public String call(Integer from) {
+                return String.valueOf(from);
+            }
+        }).subscribeOn(Schedulers.io()).subscribe(new Subscriber<String>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable t) {
+
+            }
+
+            @Override
+            public void onNext(String var1) {
+                System.out.println(Thread.currentThread().getName() + "result = " + var1);
+            }
+        });
+
+//        Flowable.just(4, 5, 6)
+//                .startWith(Flowable.just(1, 2, 3))
+//                .startWith(0)
+//                .subscribe(ele -> Log.i("tag", String.valueOf(ele)));
+
+
 //        RxUtils.test(new RxUtils.IUiTask() {
 //            @Override
 //            public void runOnUiThread() {
@@ -27,7 +57,7 @@ public class Test {
 //            }
 //        });
 //        RxUtils.testDelay();
-        RxUtils.testMerge();
+//        RxUtils.testMerge();
 //         Observable.just(0).compose(RxUtils.<Integer, String>testCompose()).subscribe(new Consumer<String>() {
 //             @Override
 //             public void accept(String s) throws Exception {

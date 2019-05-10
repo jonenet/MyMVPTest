@@ -1,16 +1,10 @@
 package com.dashuf.disp.utils;
 
-import com.dashuf.disp.mvp.model.entity.ResultBean;
 import com.jess.arms.mvp.BaseSimplePresenter;
 import com.jess.arms.mvp.IView;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Action;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
 

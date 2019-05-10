@@ -170,7 +170,6 @@ public class HomeNewRecommendAdapter extends DelegateAdapter.Adapter {
                 }
             });
         }
-
     }
 
     private View.OnClickListener listener = new View.OnClickListener() {
