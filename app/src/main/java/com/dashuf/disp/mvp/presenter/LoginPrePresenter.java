@@ -11,6 +11,7 @@ import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.mvp.BaseSimplePresenter;
 import com.jess.arms.mvp.IView;
 import com.jess.arms.mvp.Message;
+import com.jess.arms.utils.RxLifecycleUtils;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -43,7 +44,7 @@ public class LoginPrePresenter extends BaseSimplePresenter<IView> {
                     @Override
                     public void onNext(ResultBean<LoginBean> result) {
                         Timber.i("TIME_END = " + System.currentTimeMillis());
-                        if (result.isSuccess()) {
+                        if (result.getErrorCode() == 0)  {
                             LoginBean loginBean = result.getData();
                             String token = loginBean.getToken();
                             if (null != token) {
@@ -55,7 +56,7 @@ public class LoginPrePresenter extends BaseSimplePresenter<IView> {
                             message.what = 1;
                             message.handleMessageToTarget();
                             if (null != mRootView) {
-                                mRootView.showMessage(result.getMessage());
+                                mRootView.showMessage(result.getErrorMsg());
                             }
                         }
                     }

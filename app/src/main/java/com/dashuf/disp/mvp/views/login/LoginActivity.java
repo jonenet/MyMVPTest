@@ -1,5 +1,6 @@
 package com.dashuf.disp.mvp.views.login;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -125,8 +126,9 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
 
     }
 
+    @SuppressLint("CheckResult")
     private void login() {
-        if (mobile.validate() && password.validate() ) {
+        if (mobile.validate() && password.validate()) {
             Map<String, String> params = new HashMap<>();
             params.put("username", mobile.getText().toString());
             params.put("password", password.getText().toString());
@@ -149,7 +151,7 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
     }
 
 
-    @OnClick({R.id.iv_hide_pwd, R.id.iv_cancel, R.id.forget_pwd_button, R.id.sign_in_button})
+    @OnClick({R.id.iv_hide_pwd, R.id.iv_cancel, R.id.forget_pwd_button, R.id.sign_in_button,R.id.tv_register})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_hide_pwd:
@@ -168,13 +170,14 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
                 break;
 
             case R.id.sign_in_button:
+                login();
+                break;
+
+            case R.id.tv_register:
+                launchActivity(new Intent(this, RegisterActivity.class));
                 break;
         }
     }
-
-
-
-
 
 
     @Override

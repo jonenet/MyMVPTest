@@ -42,11 +42,11 @@ public class HomePresenter extends BaseSimplePresenter {
                 .subscribe(new ErrorHandleSubscriber<ResultBean<HomeBean>>(mAppComponent.rxErrorHandler()) {
             @Override
             public void onNext(ResultBean<HomeBean> result) {
-                if (result.isSuccess()) {
+                if (result.getErrorCode() == 0) {
                     HomeBean homeBean = result.getData();
                     moreView.onHomeResult(homeBean);
                 } else {
-                    HomePresenter.this.mRootView.showMessage(result.getMessage());
+                    HomePresenter.this.mRootView.showMessage(result.getErrorMsg());
                 }
             }
 

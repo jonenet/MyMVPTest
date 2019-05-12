@@ -45,10 +45,10 @@ public class DiscoveryNewsPresenter extends BaseSimplePresenter<IDiscoveryNewsVi
                 .subscribe(new ErrorHandleSubscriber<ResultBean<DiscoveryNewsBean>>(mAppComponent.rxErrorHandler()) {
             @Override
             public void onNext(ResultBean<DiscoveryNewsBean> result) {
-                if (result.isSuccess()) {
+                if (result.getErrorCode() == 0) {
                     mRootView.onPageDetailResult(result.getData());
                 } else {
-                    mRootView.showMessage(result.getMessage());
+                    mRootView.showMessage(result.getErrorMsg());
                 }
             }
         });

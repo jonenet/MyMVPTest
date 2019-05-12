@@ -34,8 +34,8 @@ public interface Api {
     String HEADER_URL_DASHBOARD = "Domain-Name: dashboard";
 
 
-    String APP_DOMAIN = "https://api.github.com/";
-    String APP_SERVER_JSON = "http://192.168.1.101:3000/";
+//    String APP_DOMAIN = "https://api.github.com/";
+    String APP_DOMAIN = "https://www.wanandroid.com/";
     String RequestSuccess = "0";
     //    String APP_DASHBOARD = "http://10.64.0.155:8082/";
     String APP_DASHBOARD = "https://pxy-disp-sit2.banketech.com/";

@@ -32,7 +32,7 @@ public class MineFragment extends BaseSimpleFragment {
 
     @Override
     public View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return LayoutInflater.from(mContext).inflate(R.layout.content_mine, container, false);
+        return LayoutInflater.from(mContext).inflate(R.layout.fragment_discovery, container, false);
     }
 
     @Override
