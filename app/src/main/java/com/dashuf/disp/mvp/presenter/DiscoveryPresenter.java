@@ -37,13 +37,13 @@ public class DiscoveryPresenter extends BaseSimplePresenter<IView> {
                 .subscribe(new ErrorHandleSubscriber<ResultBean<List<DiscoveryTopTabBean>>>(mAppComponent.rxErrorHandler()) {
             @Override
             public void onNext(ResultBean<List<DiscoveryTopTabBean>> result) {
-                if (result.isSuccess()) {
+                if (result.getErrorCode() == 0) {
                     List<DiscoveryTopTabBean> resultData = result.getData();
                     message.what = Api.TAG_ONE;
                     message.obj = resultData;
                     message.handleMessageToTarget();
                 } else {
-                    mRootView.showMessage(result.getMessage());
+                    mRootView.showMessage(result.getErrorMsg());
                 }
             }
         });

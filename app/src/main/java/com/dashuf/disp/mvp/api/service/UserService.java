@@ -15,6 +15,8 @@
  */
 package com.dashuf.disp.mvp.api.service;
 
+import android.support.v4.media.VolumeProviderCompat;
+
 import java.util.List;
 import java.util.Map;
 
@@ -26,10 +28,13 @@ import com.dashuf.disp.mvp.model.entity.DiscoveryTopTabBean;
 import com.dashuf.disp.mvp.model.entity.HomeBean;
 import com.dashuf.disp.mvp.model.entity.LoginBean;
 import com.dashuf.disp.mvp.model.entity.PostTestBean;
+import com.dashuf.disp.mvp.model.entity.RegisterBean;
 import com.dashuf.disp.mvp.model.entity.ResultBean;
 import com.dashuf.disp.mvp.model.entity.User;
 
+import okhttp3.RequestBody;
 import retrofit2.Retrofit;
+import retrofit2.http.Body;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -60,11 +65,6 @@ public interface UserService {
 
     @Headers({Api.HEADER_URL_DASHBOARD})
     @FormUrlEncoded
-    @POST("api/loginNew")
-    Observable<ResultBean<LoginBean>> doLogin(@FieldMap Map<String, String> params);
-
-    @Headers({Api.HEADER_URL_DASHBOARD})
-    @FormUrlEncoded
     @POST("api/config/findAppConfigs")
     Observable<ResultBean<HomeBean>> getHomeData(@FieldMap Map<String, String> params);
 
@@ -82,4 +82,15 @@ public interface UserService {
     @FormUrlEncoded
     @POST("/cms-api/cms/api/article/list")
     Observable<String> getRecyclerList(@FieldMap Map<String, String> params);
+
+    //    @Headers({Api.HEADER_URL_DASHBOARD})
+//    @Headers("Content-Type: application/json")
+    @POST("user/login")
+    Observable<ResultBean<LoginBean>> doLogin(@FieldMap Map<String, String> params);
+
+    @FormUrlEncoded
+    @POST("user/register")
+    Observable<ResultBean<RegisterBean>> doRegister(@FieldMap Map<String, String> params);
+
+
 }

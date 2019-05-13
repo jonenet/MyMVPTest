@@ -11,33 +11,24 @@ public class ResultBean<T> {
      * message : 成功
      * data : {"firstLogin":"N","message":"登录成功","token":"P@cA9MHgjmsiv1FIfH8R2NgN"}
      */
-    private String errorCode;
-    private String message;
-    private boolean succeed;
+    private int errorCode;
+    private String errorMsg;
     private T data;
 
-    public String getErrorCode() {
+    public int getErrorCode() {
         return errorCode;
     }
 
-    public void setErrorCode(String errorCode) {
+    public void setErrorCode(int errorCode) {
         this.errorCode = errorCode;
     }
 
-    public String getMessage() {
-        return message;
+    public String getErrorMsg() {
+        return errorMsg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public boolean isSucceed() {
-        return succeed;
-    }
-
-    public void setSucceed(boolean succeed) {
-        this.succeed = succeed;
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
     }
 
     public T getData() {
@@ -51,14 +42,9 @@ public class ResultBean<T> {
     @Override
     public String toString() {
         return "ResultBean{" +
-                "errorCode='" + errorCode + '\'' +
-                ", message='" + message + '\'' +
-                ", succeed=" + succeed +
+                "errorCode=" + errorCode +
+                ", errorMsg='" + errorMsg + '\'' +
                 ", data=" + data +
                 '}';
-    }
-
-    public boolean isSuccess() {
-        return succeed;
     }
 }

@@ -51,6 +51,8 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
 /**
  * ================================================
@@ -99,7 +101,7 @@ public class BaseSimplePresenter<V extends IView> implements IPresenter, Lifecyc
     }
 
 
-    public String mapToJson(Map<String, String> params) {
+    public RequestBody mapToJson(Map<String, String> params) {
         JSONObject jo = new JSONObject();
         if (null != params) {
             Set<String> keys = params.keySet();
@@ -111,7 +113,7 @@ public class BaseSimplePresenter<V extends IView> implements IPresenter, Lifecyc
                 }
             }
         }
-        return mAppComponent.gson().toJson(jo);
+       return RequestBody.create(MediaType.parse("application/json"),mAppComponent.gson().toJson(jo));
     }
 
     @Override
@@ -228,35 +230,35 @@ public class BaseSimplePresenter<V extends IView> implements IPresenter, Lifecyc
 
     public Map<String, String> getParams(Map<String, String> params) {
         if (null != params) {
-            RSAEncryptor rsaEncryptor;
-            try {
-                rsaEncryptor = new RSAEncryptor();
-                params.put("timeset", rsaEncryptor.encryptWithBase64("" + System.currentTimeMillis()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            params.put("cv", DeviceUtils.getVersionCode(mAppComponent.application()) + "");
-            params.put("jsonFlag", "Y");
-            params.put("channelType", "02");
-
-            PackageInfo pinfo = DeviceUtils.getPackageInfo(mAppComponent.application());
-
-            String osVersion = "Android " + android.os.Build.VERSION.RELEASE;
-            String appVersion = pinfo.versionName + "/" + pinfo.versionCode;
-            String device = Build.MANUFACTURER + " " + android.os.Build.MODEL;
-            String deviceId = "";
-            try {
-                deviceId = DeviceUtils.getIMEI(mAppComponent.application());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            params.put("osVersion", osVersion);
-            params.put("appVersion", appVersion);
-            params.put("device", device);
-
-            params.put("deviceId", "867305036892201");
-            params.put("province", "广东省");
-            params.put("city", "深圳市");
+//            RSAEncryptor rsaEncryptor;
+//            try {
+//                rsaEncryptor = new RSAEncryptor();
+//                params.put("timeset", rsaEncryptor.encryptWithBase64("" + System.currentTimeMillis()));
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            params.put("cv", DeviceUtils.getVersionCode(mAppComponent.application()) + "");
+//            params.put("jsonFlag", "Y");
+//            params.put("channelType", "02");
+//
+//            PackageInfo pinfo = DeviceUtils.getPackageInfo(mAppComponent.application());
+//
+//            String osVersion = "Android " + android.os.Build.VERSION.RELEASE;
+//            String appVersion = pinfo.versionName + "/" + pinfo.versionCode;
+//            String device = Build.MANUFACTURER + " " + android.os.Build.MODEL;
+//            String deviceId = "";
+//            try {
+//                deviceId = DeviceUtils.getIMEI(mAppComponent.application());
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            params.put("osVersion", osVersion);
+//            params.put("appVersion", appVersion);
+//            params.put("device", device);
+//
+//            params.put("deviceId", "867305036892201");
+//            params.put("province", "广东省");
+//            params.put("city", "深圳市");
 //            params.put("cityId", UserSettingProvider.provider().getUserLocationCityId());
 //            params.put("province", UserSettingProvider.provider().getUserLocationProvice());
 //            params.put("city", UserSettingProvider.provider().getUserLocationCity());
