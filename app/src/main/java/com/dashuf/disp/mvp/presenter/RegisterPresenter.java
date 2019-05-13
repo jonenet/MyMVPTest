@@ -2,9 +2,7 @@ package com.dashuf.disp.mvp.presenter;
 
 import android.util.Base64;
 
-import com.dashuf.disp.mvp.api.Api;
 import com.dashuf.disp.mvp.api.service.UserService;
-import com.dashuf.disp.mvp.model.entity.LoginBean;
 import com.dashuf.disp.mvp.model.entity.RegisterBean;
 import com.dashuf.disp.mvp.model.entity.ResultBean;
 import com.dashuf.disp.utils.RxTransfer;
@@ -16,9 +14,7 @@ import com.jess.arms.mvp.Message;
 import java.util.Map;
 
 import io.reactivex.Observable;
-import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
-import okhttp3.RequestBody;
 import timber.log.Timber;
 
 
@@ -29,36 +25,31 @@ public class RegisterPresenter extends BaseSimplePresenter<IView> {
         super(appComponent, rootView);
     }
 
-    public void register(Message message){
+    public void register(Message message) {
         Observable<ResultBean<RegisterBean>> listObservable = mAppComponent.repositoryManager().obtainRetrofitService(UserService.class).doRegister(getParams((Map<String, String>) message.obj));
-        Timber.i("TIME_START = " + System.currentTimeMillis());
         listObservable.compose(RxTransfer.doBefore(mRootView, this))
                 .subscribe(new ErrorHandleSubscriber<ResultBean<RegisterBean>>(mAppComponent.rxErrorHandler()) {
                     @Override
                     public void onNext(ResultBean<RegisterBean> result) {
-                        Timber.i("TIME_END = " + System.currentTimeMillis());
-                        Timber.i("TIME_END = " + result);
-//                        if (result.getErrorCode() == 0) {
-//                            RegisterBean loginBean = result.getData();
-//                            String token = loginBean.getToken();
-//                            if (null != token) {
-//                                mAppComponent.extras().put("token", Base64.encodeToString(token.getBytes(), Base64.DEFAULT).replace("\n", ""));
-    //                            }
-//                            message.what = 1;
-//                            message.handleMessageToTarget();
-//                        } else {
-//                            message.what = 1;
-//                            message.handleMessageToTarget();
-//                            if (null != mRootView) {
-//                                mRootView.showMessage(result.getErrorMsg());
-//                            }
-//                        }
+                        if (result.getErrorCode() == 0) {
+                            RegisterBean loginBean = result.getData();
+                            String token = loginBean.getToken();
+                            if (null != token) {
+                                mAppComponent.extras().put("token", Base64.encodeToString(token.getBytes(), Base64.DEFAULT).replace("\n", ""));
+                            }
+                            message.what = 1;
+                            message.handleMessageToTarget();
+                        } else {
+                            if (null != mRootView) {
+                                mRootView.showMessage(result.getErrorMsg());
+                            }
+                        }
                     }
 
                     @Override
                     public void onError(Throwable t) {
                         super.onError(t);
-                        Timber.i("TIME_result = %s", t.getMessage());
+                        Timber.i(TAG, "register_onError_msg = %s", t.getMessage());
                     }
                 });
     }

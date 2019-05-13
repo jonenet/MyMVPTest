@@ -1,7 +1,5 @@
 package com.dashuf.disp.mvp.presenter;
 
-import android.util.Base64;
-
 import com.dashuf.disp.mvp.api.Api;
 import com.dashuf.disp.mvp.api.service.UserService;
 import com.dashuf.disp.mvp.model.entity.LoginBean;
@@ -11,14 +9,10 @@ import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.mvp.BaseSimplePresenter;
 import com.jess.arms.mvp.IView;
 import com.jess.arms.mvp.Message;
-import com.jess.arms.utils.RxLifecycleUtils;
 
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
-import io.reactivex.ObservableTransformer;
 import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
 import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
 import timber.log.Timber;
@@ -46,10 +40,6 @@ public class LoginPrePresenter extends BaseSimplePresenter<IView> {
                         Timber.i("TIME_END = " + System.currentTimeMillis());
                         if (result.getErrorCode() == 0)  {
                             LoginBean loginBean = result.getData();
-                            String token = loginBean.getToken();
-                            if (null != token) {
-                                mAppComponent.extras().put("token", Base64.encodeToString(token.getBytes(), Base64.DEFAULT).replace("\n", ""));
-                            }
                             message.what = 1;
                             message.handleMessageToTarget();
                         } else {

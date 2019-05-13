@@ -77,7 +77,9 @@
         </activity>
         <activity android:name=".mvp.views.test.UserActivity" />
         <activity android:name=".mvp.views.test.ServerJsonActivity" />
-        <activity android:name=".mvp.views.login.LoginActivity">
+        <activity
+            android:name=".mvp.views.login.LoginActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

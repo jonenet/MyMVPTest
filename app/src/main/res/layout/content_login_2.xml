@@ -48,7 +48,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin">
 
             <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/mobile"
+                android:id="@+id/et_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_mobile"
@@ -69,7 +69,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_alignBottom="@+id/mobile"
+                android:layout_alignBottom="@+id/et_username"
                 android:layout_marginBottom="@dimen/appbar_padding_top"
                 android:background="@color/white_bg_trans" />
         </RelativeLayout>
@@ -83,7 +83,7 @@
             android:layout_marginTop="@dimen/activity_vertical_margin_small">
 
             <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/password"
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_password"
@@ -102,7 +102,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_alignBottom="@+id/password"
+                android:layout_alignBottom="@+id/et_password"
                 android:layout_marginBottom="@dimen/appbar_padding_top"
                 android:background="@color/white_bg_trans" />
 
@@ -110,7 +110,7 @@
                 android:id="@+id/iv_hide_pwd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/password"
+                android:layout_alignBottom="@+id/et_password"
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="@dimen/activity_vertical_margin_small"
                 android:layout_marginRight="7dp"

@@ -17,18 +17,24 @@ package com.jess.arms.di.module;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.jess.arms.base.BaseApplication;
+import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.http.GlobalHttpHandler;
-import com.jess.arms.http.log.FormatPrinter;
 import com.jess.arms.http.log.RequestInterceptor;
 import com.jess.arms.utils.DataHelper;
+import com.jess.arms.utils.SharedPreferenceUtil;
 import com.jess.arms.utils.StringConverterFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -42,6 +48,8 @@ import io.rx_cache2.internal.RxCache;
 import io.victoralbertos.jolyglot.GsonSpeaker;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 import me.jessyan.rxerrorhandler.handler.listener.ResponseErrorListener;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -83,8 +91,7 @@ public abstract class ClientModule {
         builder.baseUrl(httpUrl)//域名
                 .client(client);//设置okhttp
 
-        if (configuration != null)
-            configuration.configRetrofit(application, builder);
+        if (configuration != null) { configuration.configRetrofit(application, builder); }
         builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create())//使用 Rxjava
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(StringConverterFactory.create())//使用 String
@@ -107,13 +114,14 @@ public abstract class ClientModule {
     @Provides
     static OkHttpClient provideClient(Application application, @Nullable OkhttpConfiguration configuration, OkHttpClient.Builder builder, RequestInterceptor intercept
             , @Nullable List<Interceptor> interceptors, @Nullable GlobalHttpHandler handler) {
-        if (handler != null)
+        if (handler != null) {
             builder.addInterceptor(new Interceptor() {
                 @Override
                 public Response intercept(Chain chain) throws IOException {
                     return chain.proceed(handler.onHttpRequestBefore(chain, chain.request()));
                 }
             });
+        }
 
         if (null != intercept) {
             builder.connectTimeout(TIME_OUT, TimeUnit.SECONDS)
@@ -127,9 +135,33 @@ public abstract class ClientModule {
                 builder.addInterceptor(interceptor);
             }
         }
+        builder.cookieJar(new CookieJar() {
+            @Override
+            public void saveFromResponse(@NonNull HttpUrl url, List<Cookie> cookies) {
+                AppComponent appComponent = ((BaseApplication) application).getAppComponent();
+                Gson gson = appComponent.gson();
+                if (url.toString().contains("https://www.wanandroid.com/user/login")) {
+                    String cookie = gson.toJson(cookies, new TypeToken<ArrayList<Cookie>>() {
+                    }.getType());
+                    SharedPreferenceUtil.set("cookie", cookie);
+                }
+            }
 
-        if (configuration != null)
-            configuration.configOkhttp(application, builder);
+            @Override
+            public List<Cookie> loadForRequest(HttpUrl url) {
+                AppComponent appComponent = ((BaseApplication) application).getAppComponent();
+                Gson gson = appComponent.gson();
+                String cookie = SharedPreferenceUtil.getString("cookie");
+                ArrayList<Cookie> cookies = new ArrayList<>();
+                if (!TextUtils.isEmpty(cookie)) {
+                    cookies = gson.fromJson(cookie, new TypeToken<ArrayList<Cookie>>() {
+                    }.getType());
+                }
+                return cookies;
+            }
+        });
+
+        if (configuration != null) { configuration.configOkhttp(application, builder); }
         return builder.build();
     }
 
@@ -164,7 +196,7 @@ public abstract class ClientModule {
         if (configuration != null) {
             rxCache = configuration.configRxCache(application, builder);
         }
-        if (rxCache != null) return rxCache;
+        if (rxCache != null) { return rxCache; }
         return builder
                 .persistence(cacheDirectory, new GsonSpeaker());
     }

@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dashuf.disp.R;
+import com.dashuf.disp.global.AppConstant;
 import com.dashuf.disp.mvp.presenter.LoginPrePresenter;
 import com.dashuf.disp.mvp.views.HomeActivity;
 import com.jess.arms.base.App;
@@ -42,10 +43,10 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
 
     private static final String TAG = "LoginActivity";
 
-    @BindView(R.id.mobile)
-    MaterialEditText mobile;
-    @BindView(R.id.password)
-    MaterialEditText password;
+    @BindView(R.id.et_username)
+    MaterialEditText etUserName;
+    @BindView(R.id.et_password)
+    MaterialEditText etPassword;
     @BindView(R.id.forget_pwd_button)
     TextView forgetPwdButton;
     @BindView(R.id.sign_in_button)
@@ -79,6 +80,17 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
     }
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (null != intent) {
+            String userName = intent.getStringExtra(AppConstant.USERNAME);
+            if (null != etUserName) {
+                etUserName.setText(userName);
+            }
+        }
+    }
+
+    @Override
     public void initData(@Nullable Bundle savedInstanceState) {
         METValidator inviteCodeValidator = new METValidator("请输入11位手机号") {
             @Override
@@ -86,8 +98,8 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
                 return checkCellPhone(text.toString());
             }
         };
-        mobile.addValidator(inviteCodeValidator);
-        mobile.setValidateOnFocusLost(true);
+        etUserName.addValidator(inviteCodeValidator);
+        etUserName.setValidateOnFocusLost(true);
 
         METValidator otpValidator1 = new METValidator("请输入密码") {
             @Override
@@ -96,15 +108,15 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
 
             }
         };
-        password.addValidator(otpValidator1);
+        etPassword.addValidator(otpValidator1);
     }
 
     @SuppressLint("CheckResult")
     private void login() {
-        if (mobile.validate() && password.validate()) {
+        if (etUserName.validate() && etPassword.validate()) {
             Map<String, String> params = new HashMap<>();
-            params.put("username", mobile.getText().toString());
-            params.put("password", password.getText().toString());
+            params.put("username", etUserName.getText().toString());
+            params.put("etPassword", etPassword.getText().toString());
             mPresenter.doLogin(Message.obtain(this, params));
         }
     }
@@ -123,18 +135,18 @@ public class LoginActivity extends BaseSimpleActivity<LoginPrePresenter> impleme
     }
 
 
-    @OnClick({R.id.iv_hide_pwd, R.id.iv_cancel, R.id.forget_pwd_button, R.id.sign_in_button,R.id.tv_register})
+    @OnClick({R.id.iv_hide_pwd, R.id.iv_cancel, R.id.forget_pwd_button, R.id.sign_in_button, R.id.tv_register})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_hide_pwd:
                 if (hidePwd) {
-                    password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                     iv_hide_pwd.setImageResource(R.drawable.ico_hide_mony_white);
                 } else {
-                    password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                     iv_hide_pwd.setImageResource(R.drawable.ico_show_mony);
                 }
-                password.setSelection(password.length());
+                etPassword.setSelection(etPassword.length());
                 hidePwd = !hidePwd;
                 break;
             case R.id.iv_cancel:

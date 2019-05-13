@@ -18,17 +18,16 @@ package com.dashuf.disp.app;
 import android.app.Application;
 import android.content.Context;
 
+import com.dashuf.disp.BuildConfig;
 import com.dashuf.disp.R;
 import com.jess.arms.base.delegate.AppLifecycles;
 import com.jess.arms.utils.ArmsUtils;
+import com.jess.arms.utils.SharedPreferenceUtil;
 import com.jess.arms.widget.loadingview.XLoadingView;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
-
-import com.dashuf.disp.BuildConfig;
-
 import timber.log.Timber;
 
 /**
@@ -89,6 +88,8 @@ public class AppLifecyclesImpl implements AppLifecycles {
                 .setErrorViewResId(R.layout.view_error)
                 .setNoNetworkViewResId(R.layout.view_error)
                 .setLoadingViewResId(R.layout.view_loading);
+
+        SharedPreferenceUtil.init(application,"test_sp");
     }
 
     @Override

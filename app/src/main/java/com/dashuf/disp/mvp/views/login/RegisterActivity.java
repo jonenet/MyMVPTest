@@ -7,9 +7,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.dashuf.disp.R;
+import com.dashuf.disp.global.AppConstant;
+import com.dashuf.disp.mvp.model.entity.RegisterBean;
 import com.dashuf.disp.mvp.presenter.RegisterPresenter;
 import com.jess.arms.base.App;
-import com.jess.arms.base.BaseApplication;
 import com.jess.arms.base.BaseSimpleActivity;
 import com.jess.arms.mvp.IView;
 import com.jess.arms.mvp.Message;
@@ -69,11 +70,10 @@ public class RegisterActivity extends BaseSimpleActivity<RegisterPresenter> impl
     @Override
     public void handleMessage(@NonNull Message message) {
         Preconditions.checkNotNull(message);
-        switch (message.what) {
-            case 0:
-                break;
-            case 1:
-                break;
+        if (message.what == 1) {
+            // 结束当前页面，跳转到登陆页面
+            RegisterBean registerBean = (RegisterBean) message.obj;
+            launchActivity(new Intent(this, LoginActivity.class).putExtra(AppConstant.USERNAME, registerBean.getUsername()));
         }
     }
 
@@ -106,7 +106,7 @@ public class RegisterActivity extends BaseSimpleActivity<RegisterPresenter> impl
     public void onViewClicked() {
         Map<String, String> params = new HashMap<>();
         params.put("username", etMobile.getText().toString());
-        params.put("password", etPassword.getText().toString());
+        params.put("etPassword", etPassword.getText().toString());
         params.put("repassword", etRePassword.getText().toString());
         mPresenter.register(Message.obtain(this, params));
     }
