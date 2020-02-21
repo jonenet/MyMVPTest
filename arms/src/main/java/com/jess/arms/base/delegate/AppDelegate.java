@@ -32,6 +32,8 @@ import com.jess.arms.di.component.DaggerAppComponent;
 import com.jess.arms.di.module.GlobalConfigModule;
 import com.jess.arms.integration.ConfigModule;
 import com.jess.arms.integration.ManifestParser;
+import com.jess.arms.rxtest.Observable;
+import com.jess.arms.rxtest.Subscriber;
 import com.jess.arms.utils.ArmsUtils;
 import com.jess.arms.utils.Preconditions;
 
@@ -83,6 +85,8 @@ public class AppDelegate implements App, AppLifecycles {
             //将框架外部, 开发者实现的 Activity 的生命周期回调 (ActivityLifecycleCallbacks) 存入 mActivityLifeCycles 集合 (此时还未注册回调)
             module.injectActivityLifecycle(context, mActivityLifecycles);
         }
+
+
     }
 
     @Override

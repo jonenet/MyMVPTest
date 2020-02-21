@@ -1,0 +1,2103 @@
+Index: app/src/main/res/layout/content_mine.xml
+===================================================================
+--- app/src/main/res/layout/content_mine.xml	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/res/layout/content_mine.xml	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
+@@ -1,449 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:id="@+id/nested_scroll_view"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    android:background="@drawable/gradient_bg"
+-    android:fillViewport="true"
+-    android:overScrollMode="ifContentScrolls"
+-    android:scrollbars="none">
+-
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:background="@color/white_bg"
+-        android:orientation="vertical"
+-        android:paddingBottom="@dimen/activity_horizontal_margin">
+-
+-        <RelativeLayout
+-            android:id="@+id/rl_mine_info"
+-            android:layout_width="match_parent"
+-            android:layout_height="220dp"
+-            android:background="@drawable/bg_mine_home">
+-
+-            <ImageView
+-                android:id="@+id/civ_head"
+-                android:layout_width="55dp"
+-                android:layout_height="55dp"
+-                android:layout_centerHorizontal="true"
+-                android:layout_marginBottom="10dp"
+-                android:layout_marginLeft="20dp"
+-                android:layout_marginTop="50dp"
+-                android:src="@drawable/user_default_head" />
+-
+-            <RelativeLayout
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_below="@+id/civ_head"
+-                android:gravity="center"
+-                android:orientation="vertical">
+-
+-                <TextView
+-                    android:id="@+id/tv_login"
+-                    style="@style/textfont_7"
+-                    android:layout_width="wrap_content"
+-                    android:layout_height="wrap_content"
+-                    android:layout_centerInParent="true"
+-                    android:layout_marginTop="@dimen/activity_vertical_margin"
+-                    android:background="@drawable/round_conner_bg_color_primary_deep"
+-                    android:paddingBottom="5dp"
+-                    android:paddingLeft="10dp"
+-                    android:paddingRight="10dp"
+-                    android:paddingTop="5dp"
+-                    android:text="@string/action_login_now"
+-                    android:textColor="@color/white"
+-                    android:visibility="visible"
+-                    tools:visibility="gone" />
+-
+-                <LinearLayout
+-                    android:id="@+id/ll_logined_state"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:gravity="center"
+-                    android:orientation="vertical"
+-                    android:visibility="gone"
+-                    tools:visibility="visible">
+-
+-                    <TextView
+-                        android:id="@+id/tv_user_id"
+-                        style="@style/textfont_3"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:maxLines="1"
+-                        android:textColor="@color/white" />
+-
+-                    <RelativeLayout
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginTop="@dimen/activity_vertical_margin_small">
+-
+-                        <View
+-                            android:id="@+id/view_center"
+-                            android:layout_width="0dp"
+-                            android:layout_height="0dp"
+-                            android:layout_centerInParent="true" />
+-
+-                        <TextView
+-                            android:id="@+id/tv_real_info_check"
+-                            style="@style/textfont_8"
+-                            android:layout_width="wrap_content"
+-                            android:layout_height="wrap_content"
+-                            android:layout_marginRight="4dp"
+-                            android:layout_toLeftOf="@+id/view_center"
+-                            android:background="@drawable/round_conner_bg_color_primary_deep"
+-                            android:paddingBottom="3dp"
+-                            android:paddingLeft="8dp"
+-                            android:paddingRight="8dp"
+-                            android:paddingTop="3dp"
+-                            android:text="@string/real_info_check"
+-                            android:textColor="@color/white_bg" />
+-
+-                        <TextView
+-                            android:id="@+id/tv_action_bind_wx"
+-                            style="@style/textfont_8"
+-                            android:layout_width="wrap_content"
+-                            android:layout_height="wrap_content"
+-                            android:layout_marginLeft="4dp"
+-                            android:layout_toRightOf="@+id/view_center"
+-                            android:background="@drawable/round_conner_bg_color_primary_deep"
+-                            android:paddingBottom="3dp"
+-                            android:paddingLeft="8dp"
+-                            android:paddingRight="8dp"
+-                            android:paddingTop="3dp"
+-                            android:text="@string/action_bind_wx"
+-                            android:textColor="@color/white_bg" />
+-
+-
+-                        <ImageView
+-                            android:layout_width="wrap_content"
+-                            android:layout_height="wrap_content"
+-                            android:layout_alignParentRight="true"
+-                            android:layout_marginRight="30dp"
+-                            android:src="@drawable/upload_tips_icon"
+-                            android:visibility="gone" />
+-                    </RelativeLayout>
+-
+-                </LinearLayout>
+-
+-            </RelativeLayout>
+-
+-        </RelativeLayout>
+-
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="match_parent"
+-            android:layout_marginLeft="@dimen/activity_vertical_margin"
+-            android:layout_marginRight="@dimen/activity_vertical_margin"
+-            android:layout_marginTop="-20dp"
+-            android:orientation="vertical">
+-
+-            <LinearLayout
+-                android:id="@+id/ll_my_brokerage"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_marginBottom="@dimen/fab_margin"
+-                android:background="@drawable/btn_round_conner_bg_white_4"
+-                android:orientation="vertical"
+-                android:padding="@dimen/activity_vertical_margin"
+-                tools:visibility="visible">
+-
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:gravity="center_vertical"
+-                    android:orientation="horizontal">
+-
+-                    <TextView
+-                        android:id="@+id/action_my_brokerage"
+-                        style="@style/textfont_5"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:text="@string/action_my_brokerage" />
+-
+-                    <ImageView
+-                        android:id="@+id/iv_hidden_balance"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="20dp"
+-                        android:paddingLeft="@dimen/activity_vertical_margin_small"
+-                        android:paddingRight="@dimen/activity_vertical_margin_small"
+-                        android:src="@drawable/ico_hide_mony" />
+-
+-                    <View
+-                        android:layout_width="0dp"
+-                        android:layout_height="1dp"
+-                        android:layout_weight="1" />
+-
+-                    <TextView
+-                        android:id="@+id/action_my_commission"
+-                        style="@style/textfont_6"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:text="@string/commission_details"
+-                        android:textColor="@color/colorPrimary" />
+-
+-
+-                </LinearLayout>
+-
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:layout_marginTop="@dimen/activity_vertical_margin_small"
+-                    android:gravity="center_vertical"
+-                    android:orientation="horizontal">
+-
+-                    <LinearLayout
+-                        android:layout_width="0dp"
+-                        android:layout_height="wrap_content"
+-                        android:layout_weight="1"
+-                        android:orientation="vertical"
+-                        android:paddingRight="5dp">
+-
+-                        <TextView
+-                            style="@style/textfont_8"
+-                            android:layout_width="wrap_content"
+-                            android:layout_height="wrap_content"
+-                            android:text="@string/action_mine_balance" />
+-
+-                        <RelativeLayout
+-                            android:layout_width="match_parent"
+-                            android:layout_height="30dp"
+-                            android:gravity="center_vertical">
+-
+-                            <TextView
+-                                android:id="@+id/tv_balance"
+-                                style="@style/textfont_4"
+-                                android:layout_width="wrap_content"
+-                                android:layout_height="wrap_content"
+-                                android:layout_centerVertical="true"
+-                                android:text="0.00"
+-                                tools:text="1234567.00" />
+-
+-                            <TextView
+-                                android:id="@+id/tv_withdrawal"
+-                                style="@style/textfont_8"
+-                                android:layout_width="wrap_content"
+-                                android:layout_height="wrap_content"
+-                                android:layout_alignParentRight="true"
+-                                android:layout_centerVertical="true"
+-                                android:layout_marginRight="@dimen/activity_vertical_margin_small"
+-                                android:background="@drawable/round_conner_bg_color_primary_hollow"
+-                                android:paddingBottom="2dp"
+-                                android:paddingLeft="10dp"
+-                                android:paddingRight="10dp"
+-                                android:paddingTop="2dp"
+-                                android:text="@string/action_mine_withdrawal"
+-                                android:textColor="@color/colorPrimary" />
+-
+-                        </RelativeLayout>
+-
+-                    </LinearLayout>
+-
+-                    <View
+-                        android:layout_width="0.5dp"
+-                        android:layout_height="match_parent"
+-                        android:layout_marginBottom="5dp"
+-                        android:layout_marginTop="5dp"
+-                        android:background="@color/gray_line" />
+-
+-                    <LinearLayout
+-                        android:id="@+id/ll_settlement"
+-                        android:layout_width="0dp"
+-                        android:layout_height="wrap_content"
+-                        android:layout_weight="1"
+-                        android:orientation="vertical"
+-                        android:paddingLeft="@dimen/activity_vertical_margin">
+-
+-                        <TextView
+-                            style="@style/textfont_8"
+-                            android:layout_width="wrap_content"
+-                            android:layout_height="wrap_content"
+-                            android:text="@string/action_mine_settlement" />
+-
+-                        <RelativeLayout
+-                            android:layout_width="match_parent"
+-                            android:layout_height="30dp"
+-                            android:orientation="horizontal">
+-
+-                            <TextView
+-                                android:id="@+id/tv_settlement"
+-                                style="@style/textfont_4"
+-                                android:layout_width="wrap_content"
+-                                android:layout_height="wrap_content"
+-                                android:layout_centerVertical="true"
+-                                android:text="0.00" />
+-
+-                            <ImageView
+-                                android:id="@+id/iv_tip"
+-                                android:layout_width="wrap_content"
+-                                android:layout_height="15dp"
+-                                android:layout_alignParentRight="true"
+-                                android:layout_centerVertical="true"
+-                                android:paddingLeft="@dimen/activity_vertical_margin"
+-                                android:src="@drawable/mine_tip" />
+-                        </RelativeLayout>
+-
+-                    </LinearLayout>
+-
+-                </LinearLayout>
+-
+-            </LinearLayout>
+-
+-            <LinearLayout
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:background="@drawable/btn_round_conner_bg_white_4"
+-                android:orientation="vertical"
+-                android:paddingLeft="@dimen/activity_vertical_margin">
+-
+-                <RelativeLayout
+-                    android:id="@+id/rl_user_safe"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content">
+-
+-                    <ImageView
+-                        android:id="@+id/iv_user_safe"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_centerVertical="true"
+-                        android:src="@drawable/ico_my_safe" />
+-
+-                    <TextView
+-                        android:id="@+id/tv_user_safe"
+-                        style="?android:textAppearanceSmall"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_toRightOf="@+id/iv_user_safe"
+-                        android:background="@color/white"
+-                        android:paddingBottom="@dimen/activity_vertical_margin"
+-                        android:paddingLeft="10dp"
+-                        android:paddingRight="@dimen/activity_vertical_margin_small"
+-                        android:paddingTop="@dimen/activity_vertical_margin"
+-                        android:text="@string/action_mine_safe"
+-                        android:visibility="visible" />
+-
+-                    <TextView
+-                        android:id="@+id/tv_pwd_tip"
+-                        style="@style/textfont_7"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_centerVertical="true"
+-                        android:layout_toLeftOf="@+id/arr_1"
+-                        android:padding="@dimen/activity_vertical_margin_small"
+-                        android:text="未设置密码"
+-                        android:visibility="gone" />
+-
+-                    <ImageView
+-                        android:id="@+id/arr_1"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_alignParentRight="true"
+-                        android:layout_centerVertical="true"
+-                        android:layout_marginRight="@dimen/activity_vertical_margin"
+-                        android:src="@drawable/arrow_right" />
+-
+-                </RelativeLayout>
+-
+-                <include
+-                    layout="@layout/view_grayline"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="1px" />
+-
+-                <TextView
+-                    android:id="@+id/tv_user_problem"
+-                    style="?android:textAppearanceSmall"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:layout_marginRight="@dimen/activity_vertical_margin"
+-                    android:background="@color/white"
+-                    android:drawableLeft="@drawable/ico_my_problem"
+-                    android:drawablePadding="10dp"
+-                    android:drawableRight="@drawable/arrow_right"
+-                    android:paddingBottom="@dimen/activity_vertical_margin"
+-                    android:paddingTop="@dimen/activity_vertical_margin"
+-                    android:text="@string/action_mine_problem"
+-                    android:visibility="visible" />
+-
+-                <include
+-                    layout="@layout/view_grayline"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="1px" />
+-
+-                <TextView
+-                    android:id="@+id/tv_user_feedback"
+-                    style="?android:textAppearanceSmall"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:layout_marginRight="@dimen/activity_vertical_margin"
+-                    android:background="@color/white"
+-                    android:drawableLeft="@drawable/ico_my_feedback"
+-                    android:drawablePadding="10dp"
+-                    android:drawableRight="@drawable/arrow_right"
+-                    android:paddingBottom="@dimen/activity_vertical_margin"
+-                    android:paddingTop="@dimen/activity_vertical_margin"
+-                    android:text="@string/action_mine_feedback"
+-                    android:visibility="visible" />
+-
+-                <include
+-                    layout="@layout/view_grayline"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="1px" />
+-
+-                <TextView
+-                    android:id="@+id/tv_user_share"
+-                    style="?android:textAppearanceSmall"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:background="@color/white"
+-                    android:drawableLeft="@drawable/ico_my_share"
+-                    android:drawablePadding="10dp"
+-                    android:drawableRight="@drawable/arrow_right"
+-                    android:padding="@dimen/activity_horizontal_margin"
+-                    android:text="@string/action_mine_share"
+-                    android:visibility="gone" />
+-
+-                <RelativeLayout
+-                    android:id="@+id/rl_user_setting"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content">
+-
+-                    <ImageView
+-                        android:id="@+id/iv_user_setting"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_centerVertical="true"
+-                        android:src="@drawable/ico_my_setting" />
+-
+-                    <TextView
+-                        android:id="@+id/tv_user_setting"
+-                        style="?android:textAppearanceSmall"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_toRightOf="@+id/iv_user_setting"
+-                        android:background="@color/white"
+-                        android:paddingBottom="@dimen/activity_vertical_margin"
+-                        android:paddingLeft="10dp"
+-                        android:paddingRight="@dimen/activity_vertical_margin_small"
+-                        android:paddingTop="@dimen/activity_vertical_margin"
+-                        android:text="@string/action_mine_setting"
+-                        android:visibility="visible" />
+-
+-                    <ImageView
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_alignParentRight="true"
+-                        android:layout_centerVertical="true"
+-                        android:layout_marginRight="@dimen/activity_vertical_margin"
+-                        android:src="@drawable/arrow_right" />
+-
+-                </RelativeLayout>
+-
+-            </LinearLayout>
+-
+-        </LinearLayout>
+-
+-
+-    </LinearLayout>
+-
+-</ScrollView>
+\ No newline at end of file
+Index: app/src/main/res/layout/content_login_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/content_login_2.xml	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/res/layout/content_login_2.xml	(date 1557667624883)
+@@ -61,7 +61,6 @@
+                 app:met_clearButton="true"
+                 app:met_floatingLabel="highlight"
+                 app:met_hideUnderline="true"
+-                app:met_singleLineEllipsis="@bool/met_edit_singleLineEllipsis"
+                 app:met_textColor="@color/white"
+                 app:met_textColorHint="@color/text_color_trans"
+                 app:met_underlineColor="@color/white" />
+@@ -96,7 +95,6 @@
+                 app:met_baseColor="@color/white"
+                 app:met_floatingLabel="highlight"
+                 app:met_hideUnderline="true"
+-                app:met_singleLineEllipsis="@bool/met_edit_singleLineEllipsis"
+                 app:met_textColor="@color/white"
+                 app:met_textColorHint="@color/text_color_trans"
+                 app:met_underlineColor="@color/white" />
+@@ -134,6 +132,21 @@
+             android:gravity="right"
+             android:text="@string/action_forget_pwd"
+             android:textColor="@color/gray_e6" />
++        <TextView
++            android:id="@+id/tv_register"
++            style="@style/textfont_5"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_alignParentRight="true"
++            android:layout_centerVertical="true"
++            android:paddingTop="3dp"
++            android:paddingBottom="3dp"
++            android:layout_marginRight="@dimen/activity_vertical_margin"
++            android:layout_marginTop="@dimen/activity_vertical_margin_small"
++            android:foregroundGravity="center_vertical"
++            android:gravity="right"
++            android:text="@string/register"
++            android:textColor="@color/gray_e6" />
+ 
+         <Button
+             android:id="@+id/sign_in_button"
+Index: app/src/main/java/com/dashuf/disp/mvp/api/service/UserService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/api/service/UserService.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/java/com/dashuf/disp/mvp/api/service/UserService.java	(date 1557673433410)
+@@ -15,6 +15,8 @@
+  */
+ package com.dashuf.disp.mvp.api.service;
+ 
++import android.support.v4.media.VolumeProviderCompat;
++
+ import java.util.List;
+ import java.util.Map;
+ 
+@@ -26,10 +28,13 @@
+ import com.dashuf.disp.mvp.model.entity.HomeBean;
+ import com.dashuf.disp.mvp.model.entity.LoginBean;
+ import com.dashuf.disp.mvp.model.entity.PostTestBean;
++import com.dashuf.disp.mvp.model.entity.RegisterBean;
+ import com.dashuf.disp.mvp.model.entity.ResultBean;
+ import com.dashuf.disp.mvp.model.entity.User;
+ 
++import okhttp3.RequestBody;
+ import retrofit2.Retrofit;
++import retrofit2.http.Body;
+ import retrofit2.http.FieldMap;
+ import retrofit2.http.FormUrlEncoded;
+ import retrofit2.http.GET;
+@@ -58,11 +63,6 @@
+     Observable<List<PostTestBean>> postTest();
+ 
+ 
+-    @Headers({Api.HEADER_URL_DASHBOARD})
+-    @FormUrlEncoded
+-    @POST("api/loginNew")
+-    Observable<ResultBean<LoginBean>> doLogin(@FieldMap Map<String, String> params);
+-
+     @Headers({Api.HEADER_URL_DASHBOARD})
+     @FormUrlEncoded
+     @POST("api/config/findAppConfigs")
+@@ -82,4 +82,15 @@
+     @FormUrlEncoded
+     @POST("/cms-api/cms/api/article/list")
+     Observable<String> getRecyclerList(@FieldMap Map<String, String> params);
++
++    //    @Headers({Api.HEADER_URL_DASHBOARD})
++//    @Headers("Content-Type: application/json")
++    @POST("user/login")
++    Observable<ResultBean<LoginBean>> doLogin(@FieldMap Map<String, String> params);
++
++    @FormUrlEncoded
++    @POST("user/register")
++    Observable<ResultBean<RegisterBean>> doRegister(@FieldMap Map<String, String> params);
++
++
+ }
+Index: app/src/main/java/com/dashuf/disp/mvp/presenter/HomePresenter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/presenter/HomePresenter.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/java/com/dashuf/disp/mvp/presenter/HomePresenter.java	(date 1557670508172)
+@@ -42,11 +42,11 @@
+                 .subscribe(new ErrorHandleSubscriber<ResultBean<HomeBean>>(mAppComponent.rxErrorHandler()) {
+             @Override
+             public void onNext(ResultBean<HomeBean> result) {
+-                if (result.isSuccess()) {
++                if (result.getErrorCode() == 0) {
+                     HomeBean homeBean = result.getData();
+                     moreView.onHomeResult(homeBean);
+                 } else {
+-                    HomePresenter.this.mRootView.showMessage(result.getMessage());
++                    HomePresenter.this.mRootView.showMessage(result.getErrorMsg());
+                 }
+             }
+ 
+Index: app/src/main/java/com/dashuf/disp/mvp/views/home/MineFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/views/home/MineFragment.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/java/com/dashuf/disp/mvp/views/home/MineFragment.java	(date 1557668666607)
+@@ -32,7 +32,7 @@
+ 
+     @Override
+     public View initView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+-        return LayoutInflater.from(mContext).inflate(R.layout.content_mine, container, false);
++        return LayoutInflater.from(mContext).inflate(R.layout.fragment_discovery, container, false);
+     }
+ 
+     @Override
+Index: app/src/main/java/com/dashuf/disp/mvp/api/Api.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/api/Api.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/java/com/dashuf/disp/mvp/api/Api.java	(date 1557662510949)
+@@ -34,8 +34,8 @@
+     String HEADER_URL_DASHBOARD = "Domain-Name: dashboard";
+ 
+ 
+-    String APP_DOMAIN = "https://api.github.com/";
+-    String APP_SERVER_JSON = "http://192.168.1.101:3000/";
++//    String APP_DOMAIN = "https://api.github.com/";
++    String APP_DOMAIN = "https://www.wanandroid.com/";
+     String RequestSuccess = "0";
+     //    String APP_DASHBOARD = "http://10.64.0.155:8082/";
+     String APP_DASHBOARD = "https://pxy-disp-sit2.banketech.com/";
+Index: app/src/main/res/layout/activity_register.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_register.xml	(date 1557670807112)
++++ app/src/main/res/layout/activity_register.xml	(date 1557670807112)
+@@ -0,0 +1,147 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:background="@color/blue"
++    android:orientation="vertical">
++
++    <include layout="@layout/include_title"/>
++
++    <LinearLayout
++        android:id="@+id/ll_account"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_below="@+id/iv_cancel"
++        android:layout_marginLeft="@dimen/activity_horizontal_margin_2x"
++        android:layout_marginRight="@dimen/activity_horizontal_margin_2x"
++        android:layout_marginTop="@dimen/activity_vertical_margin_2x"
++        android:orientation="vertical"
++        android:visibility="visible"
++        tools:visibility="visible">
++
++        <TextView
++            android:visibility="gone"
++            style="@style/textfont_2"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:padding="@dimen/activity_horizontal_margin"
++            android:text="@string/welcome_login_app"
++            android:textColor="@color/white"
++            android:textSize="24sp" />
++
++        <RelativeLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/activity_horizontal_margin"
++            android:layout_marginRight="@dimen/activity_horizontal_margin">
++
++            <com.rengwuxian.materialedittext.MaterialEditText
++                android:id="@+id/et_mobile"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:hint="@string/prompt_mobile"
++                android:inputType="number"
++                android:maxEms="11"
++                android:maxLength="11"
++                android:text="13727891455"
++                android:paddingBottom="@dimen/activity_vertical_margin_small"
++                app:met_baseColor="@color/white"
++                app:met_clearButton="true"
++                app:met_floatingLabel="highlight"
++                app:met_hideUnderline="true"
++                app:met_textColor="@color/white"
++                app:met_textColorHint="@color/text_color_trans"
++                app:met_underlineColor="@color/white" />
++
++
++            <View
++                android:layout_width="match_parent"
++                android:layout_height="0.5dp"
++                android:layout_alignBottom="@+id/mobile"
++                android:layout_marginBottom="@dimen/appbar_padding_top"
++                android:background="@color/white_bg_trans" />
++        </RelativeLayout>
++
++
++        <RelativeLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/activity_horizontal_margin"
++            android:layout_marginRight="@dimen/activity_horizontal_margin"
++            android:layout_marginTop="@dimen/activity_vertical_margin_small">
++
++            <com.rengwuxian.materialedittext.MaterialEditText
++                android:id="@+id/et_password"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:hint="@string/prompt_password"
++                android:text="123456"
++                android:imeActionLabel="@string/action_sign_in"
++                android:imeOptions="actionSend"
++                android:paddingBottom="@dimen/activity_vertical_margin_small"
++                app:met_baseColor="@color/white"
++                app:met_floatingLabel="highlight"
++                app:met_hideUnderline="true"
++                app:met_textColor="@color/white"
++                app:met_textColorHint="@color/text_color_trans"
++                app:met_underlineColor="@color/white" />
++
++            <View
++                android:layout_width="match_parent"
++                android:layout_height="0.5dp"
++                android:layout_alignBottom="@+id/password"
++                android:layout_marginBottom="@dimen/appbar_padding_top"
++                android:background="@color/white_bg_trans" />
++
++        </RelativeLayout>
++
++        <RelativeLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/activity_horizontal_margin"
++            android:layout_marginRight="@dimen/activity_horizontal_margin"
++            android:layout_marginTop="@dimen/activity_vertical_margin_small">
++
++            <com.rengwuxian.materialedittext.MaterialEditText
++                android:id="@+id/et_repassword"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:hint="@string/prompt_password"
++                android:text="123456"
++                android:imeActionLabel="@string/action_sign_in"
++                android:imeOptions="actionSend"
++                android:paddingBottom="@dimen/activity_vertical_margin_small"
++                app:met_baseColor="@color/white"
++                app:met_floatingLabel="highlight"
++                app:met_hideUnderline="true"
++                app:met_textColor="@color/white"
++                app:met_textColorHint="@color/text_color_trans"
++                app:met_underlineColor="@color/white" />
++
++            <View
++                android:layout_width="match_parent"
++                android:layout_height="0.5dp"
++                android:layout_alignBottom="@+id/password"
++                android:layout_marginBottom="@dimen/appbar_padding_top"
++                android:background="@color/white_bg_trans" />
++
++        </RelativeLayout>
++
++
++        <Button
++            android:id="@+id/sign_in_button"
++            style="@style/ButtonStyle"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/activity_horizontal_margin"
++            android:layout_marginRight="@dimen/activity_horizontal_margin"
++            android:focusableInTouchMode="true"
++            android:background="@drawable/round_conner_bg_color_primary"
++            android:text="@string/register"
++            android:textSize="16sp" />
++
++    </LinearLayout>
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/dashuf/disp/mvp/presenter/DiscoveryNewsPresenter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/presenter/DiscoveryNewsPresenter.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/java/com/dashuf/disp/mvp/presenter/DiscoveryNewsPresenter.java	(date 1557670508105)
+@@ -45,10 +45,10 @@
+                 .subscribe(new ErrorHandleSubscriber<ResultBean<DiscoveryNewsBean>>(mAppComponent.rxErrorHandler()) {
+             @Override
+             public void onNext(ResultBean<DiscoveryNewsBean> result) {
+-                if (result.isSuccess()) {
++                if (result.getErrorCode() == 0) {
+                     mRootView.onPageDetailResult(result.getData());
+                 } else {
+-                    mRootView.showMessage(result.getMessage());
++                    mRootView.showMessage(result.getErrorMsg());
+                 }
+             }
+         });
+Index: app/src/main/java/com/dashuf/disp/mvp/presenter/DiscoveryPresenter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/presenter/DiscoveryPresenter.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/java/com/dashuf/disp/mvp/presenter/DiscoveryPresenter.java	(date 1557670508204)
+@@ -37,13 +37,13 @@
+                 .subscribe(new ErrorHandleSubscriber<ResultBean<List<DiscoveryTopTabBean>>>(mAppComponent.rxErrorHandler()) {
+             @Override
+             public void onNext(ResultBean<List<DiscoveryTopTabBean>> result) {
+-                if (result.isSuccess()) {
++                if (result.getErrorCode() == 0) {
+                     List<DiscoveryTopTabBean> resultData = result.getData();
+                     message.what = Api.TAG_ONE;
+                     message.obj = resultData;
+                     message.handleMessageToTarget();
+                 } else {
+-                    mRootView.showMessage(result.getMessage());
++                    mRootView.showMessage(result.getErrorMsg());
+                 }
+             }
+         });
+Index: arms/src/main/java/com/jess/arms/base/delegate/AppDelegate.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- arms/src/main/java/com/jess/arms/base/delegate/AppDelegate.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ arms/src/main/java/com/jess/arms/base/delegate/AppDelegate.java	(date 1557623474705)
+@@ -80,7 +80,7 @@
+             //将框架外部, 开发者实现的 Application 的生命周期回调 (AppLifecycles) 存入 mAppLifecycles 集合 (此时还未注册回调)
+             module.injectAppLifecycle(context, mAppLifecycles);
+ 
+-            //将框架外部, 开发者实现的 Activity 的生命周期回调 (ActivityLifecycleCallbacks) 存入 mActivityLifecycles 集合 (此时还未注册回调)
++            //将框架外部, 开发者实现的 Activity 的生命周期回调 (ActivityLifecycleCallbacks) 存入 mActivityLifeCycles 集合 (此时还未注册回调)
+             module.injectActivityLifecycle(context, mActivityLifecycles);
+         }
+     }
+Index: app/src/main/java/com/dashuf/disp/mvp/presenter/RegisterPresenter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/presenter/RegisterPresenter.java	(date 1557673431009)
++++ app/src/main/java/com/dashuf/disp/mvp/presenter/RegisterPresenter.java	(date 1557673431009)
+@@ -0,0 +1,70 @@
++package com.dashuf.disp.mvp.presenter;
++
++import android.util.Base64;
++
++import com.dashuf.disp.mvp.api.Api;
++import com.dashuf.disp.mvp.api.service.UserService;
++import com.dashuf.disp.mvp.model.entity.LoginBean;
++import com.dashuf.disp.mvp.model.entity.RegisterBean;
++import com.dashuf.disp.mvp.model.entity.ResultBean;
++import com.dashuf.disp.utils.RxTransfer;
++import com.jess.arms.di.component.AppComponent;
++import com.jess.arms.mvp.BaseSimplePresenter;
++import com.jess.arms.mvp.IView;
++import com.jess.arms.mvp.Message;
++
++import java.util.Map;
++
++import io.reactivex.Observable;
++import me.jessyan.retrofiturlmanager.RetrofitUrlManager;
++import me.jessyan.rxerrorhandler.handler.ErrorHandleSubscriber;
++import okhttp3.RequestBody;
++import timber.log.Timber;
++
++
++public class RegisterPresenter extends BaseSimplePresenter<IView> {
++
++
++    public RegisterPresenter(AppComponent appComponent, IView rootView) {
++        super(appComponent, rootView);
++    }
++
++    public void register(Message message){
++        Observable<ResultBean<RegisterBean>> listObservable = mAppComponent.repositoryManager().obtainRetrofitService(UserService.class).doRegister(getParams((Map<String, String>) message.obj));
++        Timber.i("TIME_START = " + System.currentTimeMillis());
++        listObservable.compose(RxTransfer.doBefore(mRootView, this))
++                .subscribe(new ErrorHandleSubscriber<ResultBean<RegisterBean>>(mAppComponent.rxErrorHandler()) {
++                    @Override
++                    public void onNext(ResultBean<RegisterBean> result) {
++                        Timber.i("TIME_END = " + System.currentTimeMillis());
++                        Timber.i("TIME_END = " + result);
++//                        if (result.getErrorCode() == 0) {
++//                            RegisterBean loginBean = result.getData();
++//                            String token = loginBean.getToken();
++//                            if (null != token) {
++//                                mAppComponent.extras().put("token", Base64.encodeToString(token.getBytes(), Base64.DEFAULT).replace("\n", ""));
++    //                            }
++//                            message.what = 1;
++//                            message.handleMessageToTarget();
++//                        } else {
++//                            message.what = 1;
++//                            message.handleMessageToTarget();
++//                            if (null != mRootView) {
++//                                mRootView.showMessage(result.getErrorMsg());
++//                            }
++//                        }
++                    }
++
++                    @Override
++                    public void onError(Throwable t) {
++                        super.onError(t);
++                        Timber.i("TIME_result = %s", t.getMessage());
++                    }
++                });
++    }
++
++    @Override
++    public void onDestroy() {
++        super.onDestroy();
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/res/values/strings.xml	(date 1557670133611)
+@@ -10,26 +10,8 @@
+     <string name="title_activity_tabbed">TabbedActivity</string>
+     <string name="section_format">Hello World from section: %1$d</string>
+ 
+-    <string name="tab_1">Label 1</string>
+-    <string name="tab_2">Label 2</string>
+-    <string name="tab_3">Label 3</string>
+-    <string name="tab_4">Label 4</string>
+-
+ 
+-    <string name="welcome_bg">welcome bg</string>
+ 
+-    <string name="splash_count_down">跳过&#160;%1$d</string>
+-
+-    <!-- 欢迎页面 -->
+-    <string name="guide_title1">全新体验</string>
+-    <string name="guide_subtitle1">视觉更美观 功能更强大</string>
+-    <string name="guide_title2">还款测算</string>
+-    <string name="guide_subtitle2">轻松滑一滑 还款早知道</string>
+-    <string name="guide_title3">智能录单</string>
+-    <string name="guide_subtitle3">一键智能识别 录单更加轻松</string>
+-    <string name="guide_title4">文字文字文字文字文字</string>
+-    <string name="guide_subtitle4">V2.0</string>
+-    <string name="enter_app">立刻体验</string>
+     <!-- Strings related to home -->
+     <string name="bottom_tab_0">智能评估</string>
+     <string name="bottom_tab_1">首页</string>
+@@ -60,7 +42,7 @@
+     <string name="action_next">下一步</string>
+     <string name="action_recommend">立即推荐</string>
+     <string name="error_invalid_email">请确认你的手机号码！</string>
+-    <string name="error_invalid_password">密码不正确！</string>
++    <string name="error_invalid_password">密码不正确！</string>RCRCCRC IM
+     <string name="error_incorrect_password">密码不正确！</string>
+     <string name="error_field_required">请输入%1$s</string>
+     <string name="permission_rationale">"Contacts permissions are needed for providing email
+@@ -72,7 +54,7 @@
+     <string name="title_login_otp">用短信验证码登录</string>
+     <string name="action_login_account">账号登录</string>
+     <string name="action_reset_pwd">重置密码</string>
+-    <!-- Strings related to register -->
++    <!-- Strings related to doRegister -->
+     <string name="prompt_mobile">手机号码</string>
+     <string name="prompt_mobile_resetpwd">请输入注册手机号码</string>
+     <string name="prompt_password_ensure">确认密码</string>
+@@ -111,497 +93,17 @@
+     <!-- 发现 -->
+     <string name="action_business_guie">影像资料示例</string>
+     <string name="action_place_addr">网点查询</string>
+-    <!-- 我 -->
+-    <string name="action_user_info">我的资料</string>
+-    <string name="action_user_upgrade">升级高级用户</string>
+-    <string name="action_my_brokerage">我的佣金</string>
+-    <string name="action_password_manager">修改密码</string>
+-    <string name="action_about_company">关于公司</string>
+-    <string name="action_check_version">检查最新版本</string>
+-    <string name="action_new_version">最新版本</string>
+-    <string name="action_check_version_isnew">已经是最新版本</string>
+-    <string name="action_check_version_notnew">发现新版本</string>
+-    <string name="action_about">关于</string>
+-    <string name="action_quit">退出登录</string>
+-    <string name="action_login_now">立即登录</string>
+-    <string name="action_bind_wx">去绑定微信</string>
+-    <string name="action_mine_balance">可提现余额</string>
+-    <string name="action_mine_settlement">结算中</string>
+-    <string name="action_mine_withdrawal">提现</string>
+-    <string name="action_mine_safe">账号安全</string>
+-    <string name="action_mine_problem">常见问题</string>
+-    <string name="action_mine_feedback">意见反馈</string>
+-    <string name="action_mine_share">分享有礼</string>
+-    <string name="action_mine_setting">设置</string>
+-
+-    <!--新添加    实名信息-->
+-    <string name="action_user_info_real_check">实名信息</string>
+-    <string name="user_info_check_detail_info">请确认以下为本人信息及信息真实有效</string>
+-    <string name="user_info_complete_detail_info">*请确认客户信息的准确性，若填写错误可能会导致贷款失败</string>
+-    <string name="user_info_real_detail">支持银行包括中国银行、招商银行、平安银行、工商银行、建设银行、农业银行、民生银行、兴业银行、华夏银行、中信银行、浦发银行等，查看更多>></string>
+-    <string name="prompt_bank_card">银行卡</string>
+-    <string name="input_you_bank_num">填写个人银行卡号</string>
+-    <string name="input_you_bank_pre_phone_num">手机号码为银行卡预留号码</string>
+-    <string name="mobile_num">手机号</string>
+-    <string name="ocr">OCR</string>
+-    <string name="banding_go">去绑定</string>
+-    <string name="real_info_check">实名认证</string>
+-    <string name="real_info_check_now">立即实名</string>
+-    <string name="real_info_check_done">已实名</string>
+-    <string name="banding_bank_card">绑定银行卡</string>
+-
+-    <!-- 我的资料 -->
+-    <string name="highgrade_info">高级资料</string>
+-    <string name="real_info">实名信息</string>
+-    <string name="name">姓名</string>
+-    <string name="ID_number">身份证</string>
+-    <string name="bank_card_number">银行卡号</string>
+-    <string name="bank_card_company">所属银行</string>
+-    <string name="bank_card_company_branch">分支行</string>
+-    <string name="normalgrade_info">基础资料</string>
+-    <string name="mobile">手机号码</string>
+-    <string name="grade">用户等级</string>
+-    <string name="business_city">业务城市</string>
+-    <string name="agent">客户经理</string>
+-    <string name="agent_mobile">客户经理电话</string>
+-    <string name="action_upgrade">升级</string>
+-    <string name="ID_info">请输入本人身份证信息</string>
+-    <string name="bank_card_info">请输入银行卡信息</string>
+-    <string name="bank_card_info_tip">为了正常结算佣金，以下信息仅用于验证卡号是否正确（请勿使用信用卡）。</string>
+-    <string name="bank_card_info_tip2">小心你的私房钱，别被发现哦</string>
+-    <string name="prompt_bank_card_number">银行卡号</string>
+-    <string name="prompt_bank_card_company">所属银行</string>
+-    <string name="prompt_bank_card_company_branch">分支行</string>
+-    <string name="prompt_bank_card_user_name">开户名</string>
+-    <string name="prompt_bank_card_user_id">开户人身份证号码</string>
+-    <string name="prompt_bank_card_user_mobile">该卡预留手机号</string>
+-    <string name="action_scan">扫描识别</string>
+-
+-    <string name="title_loan_ddjf">赎楼贷款</string>
+-    <string name="title_loan_credit">信用贷款</string>
+-    <string name="action_ocr_guide_view_more">点击了解更多产品信息</string>
+-    <string name="prompt_building_area">房屋区域</string>
+-    <string name="prompt_building_address_title">请填写详细信息</string>
+-    <string name="prompt_building_address">房产地址</string>
+-    <string name="prompt_building_address_helper">请务必按照房产证地址完整输入</string>
+-
+-    <string-array name="nationality">
+-        <item>汉    </item>
+-        <item>壮    </item>
+-        <item>回    </item>
+-        <item>满    </item>
+-        <item>维吾尔 </item>
+-        <item>苗    </item>
+-        <item>彝    </item>
+-        <item>土家  </item>
+-        <item>藏    </item>
+-        <item>蒙古  </item>
+-        <item>侗    </item>
+-        <item>布依  </item>
+-        <item>瑶    </item>
+-        <item>白    </item>
+-        <item>朝鲜  </item>
+-        <item>哈尼  </item>
+-        <item>黎    </item>
+-        <item>哈萨克 </item>
+-        <item>傣    </item>
+-        <item>畲    </item>
+-        <item>傈僳  </item>
+-        <item>东乡  </item>
+-        <item>仡佬  </item>
+-        <item>拉祜  </item>
+-        <item>佤    </item>
+-        <item>水    </item>
+-        <item>纳西  </item>
+-        <item>羌    </item>
+-        <item>土    </item>
+-        <item>仫佬  </item>
+-        <item>锡伯  </item>
+-        <item>柯尔克孜</item>
+-        <item>景颇  </item>
+-        <item>达斡尔 </item>
+-        <item>撒拉  </item>
+-        <item>布朗  </item>
+-        <item>毛南  </item>
+-        <item>塔吉克 </item>
+-        <item>普米  </item>
+-        <item>阿昌  </item>
+-        <item>怒    </item>
+-        <item>鄂温克 </item>
+-        <item>京    </item>
+-        <item>基诺  </item>
+-        <item>德昂  </item>
+-        <item>保安  </item>
+-        <item>俄罗斯 </item>
+-        <item>裕固  </item>
+-        <item>乌孜别克</item>
+-        <item>门巴   </item>
+-        <item>鄂伦春 </item>
+-        <item>独龙   </item>
+-        <item>赫哲   </item>
+-        <item>高山   </item>
+-        <item>珞巴   </item>
+-        <item>塔塔尔 </item>
+-    </string-array>
+-
+-    <bool name="met_edit_singleLineEllipsis">false</bool>
+-
+-
+-    <string name="title_msg_box">收件箱</string>
+-    <string name="title_msg_box_business">业务信息</string>
+-    <string name="title_msg_box_business_detail">业务详情</string>
+-    <string name="title_msg_box_ad">公告中心</string>
+-    <string name="title_msg_box_notice">公告中心</string>
+-    <string name="title_msg_box_notice_detail">通知详情</string>
+-    <string name="title_msg_box_unread">(%1$s)</string>
+-    <string name="action_msg_box_handle">去处理</string>
+-    <string name="action_msg_box_handled">已处理</string>
+-    <string name="action_msg_box_agree">同意</string>
+-    <string name="action_msg_box_invalid">已失效</string>
+-    <string name="action_msg_box_refuse">拒绝</string>
+-
+-    <string name="action_brokerage_history">佣金记录</string>
+-    <string name="title_msg_brokerage">佣金信息</string>
+-    <string name="msg_brokerage_1">客户面签你即可获得红包</string>
+-    <string name="msg_brokerage_2">客户放款你即可获得佣金</string>
+-    <string name="msg_brokerage_3">放款金额 \u0020x\u0020 %1$s%%</string>
+-    <string name="msg_brokerage_4">%1$s 元</string>
+-    <string name="tip_msg_brokerage">*以上放款佣金以实际核算为准</string>
+-
+-    <string name="title_msg_product">产品信息</string>
+-    <string name="msg_product_name">产品</string>
+-    <string name="msg_product_maxamt">最高可贷金额</string>
+-    <string name="msg_product_maxamt_unit">%1$s 万</string>
+-    <string name="msg_product_loanterm">期限</string>
+-    <string name="msg_product_loanterm_unit">%1$s 月</string>
+-    <string name="msg_product_monthpay">月供</string>
+-    <string name="msg_product_monthpay_unit">%1$s 元</string>
+-    <string name="msg_product_monthcostrate">月总成本率</string>
+-    <string name="msg_product_monthcostrate_unit">%1$s%%</string>
+-    <string name="msg_sign_time">预约面签时间：</string>
+-    <string name="msg_sign_address">面签地点：</string>
+-    <string name="msg_sign_authorize">客户授权：</string>
+-
+-
+-    <string name="showcase_title_todo">面签和退回消息都在这里哦~\n请及时办理</string>
+-    <string name="showcase_title_msg">查看贷款流程通知</string>
+-    <string name="showcase_title_loan_history">查看历史推荐记录</string>
+-
+-    <string name="action_qrcode">查看二维码</string>
+-    <string name="prompt_qrcode">请客户使用微信扫一扫，扫描该二维码:</string>
+-    <string name="title_poster">海报</string>
+-    <string name="title_poster_ds">大数</string>
+-    <string name="title_poster_other">友商</string>
+-    <string name="action_post">发布</string>
+-    <string name="action_share">分享</string>
+-    <string name="title_share">分享到</string>
+-    <string name="action_share_wx_session">微信好友</string>
+-    <string name="action_share_wx_timeline">朋友圈</string>
+-    <string name="action_share_wb">新浪微博</string>
+-    <string name="action_share_qq">QQ</string>
+-    <string name="action_share_qzone">QQ空间</string>
+-    <string name="action_share_SMS">信息</string>
+-    <string name="error_poster_share">生成海报失败</string>
+-
+-    <string name="action_share_gift">分享有礼</string>
+-    <string name="title_share_gift">评估神：开单快人一步</string>
+-    <string name="desc_share_gift">评估神APP，随时随地助你开单，线上申请查询征信，无需重复往返现场。</string>
+-    <string name="action_my_score">我的积分</string>
+-    <string name="tip_my_score">积分兑换暂未开放，敬请期待！</string>
+-
+-    <string name="title_diary">我的一天</string>
+-    <string name="title_diary_today">今日任务</string>
+-    <string name="title_diary_tag_pool">待选任务栏</string>
+-    <string name="action_diary_tag">添加任务</string>
+-    <string name="prompt_diary_summary">今日总结</string>
+-    <string name="action_review">预览</string>
+-    <string name="prompt_diary_name">我叫%1$s</string>
+-    <string name="prompt_diary_mobile">我的手机号是:%1$s</string>
+-    <string name="prompt_diary_date">%1$s,我的这一天</string>
+-    <string name="prompt_diary_summary2">总结:&#160;%1$s</string>
+-    <string name="error_diary">生成我的一天失败</string>
+-    <string name="prompt_diary_new_tag">新任务:</string>
+-    <string name="action_add">添加</string>
+-    <string name="prompt_diary_summary_min_characters">请输入今日总结</string>
+-    <string name="prompt_diary_summary_max_characters">今日总结不能超过%1$d个字</string>
+-    <integer name="diary_summary_max_characters">40</integer>
+-    <string name="prompt_diary_tag_min_characters">请输入任务</string>
+-    <string name="prompt_diary_tag_max_characters">任务不能超过%1$d个字</string>
+-    <integer name="diary_tag_max_characters">10</integer>
+-
+-    <string name="errcode_success">发送成功</string>
+-    <string name="errcode_cancel">发送取消</string>
+-    <string name="errcode_deny">发送被拒绝</string>
+-    <string name="errcode_fail">发送失败</string>
+-    <string name="errcode_unknown">发送返回</string>
+-    <string name="weibo_installation">请先安装最新版微博客户端</string>
+-    <string name="send_img_file_not_exist">文件不存在</string>
+-
+-
+-    <string name="action_credit_report_history">历史记录</string>
+-    <string name="title_credit_report_result">提交结果</string>
+-    <string name="title_upload_credit_information_reports">在线询单</string>
+-    <string name="ID_info_customer">请输入客户信息</string>
+-    <string name="title_credit_report_customer">请上传客户征信报告</string>
+-    <string name="action_from_album">照片图库</string>
+-    <string name="action_from_camera">拍照</string>
+-    <string name="title_select_album">选择相册</string>
+-    <string name="title_select_photo">选择照片</string>
+-    <string name="action_gotit">知道了</string>
+-    <string name="action_start_upload_cr">立即体验</string>
+-
+-    <string name="title_product_credit">信用</string>
+-    <string name="title_product_mortgage">抵押</string>
+ 
+-    <string name="title_apply_bank">选择银行</string>
+-    <string name="tip_select_apply_bank">你是否有借款人详细版征信报告？</string>
+-    <string name="tip_apply_bank">请授权查询征信报告</string>
+-    <string name="prompt_apply_bank">申请银行</string>
+-    <string name="hint_apply_bank">请选择申请银行</string>
+ 
+-    <string name="title_set_invited_code">邀请码</string>
+-    <string name="tip_invited_code">如果你是客户经理推荐注册，请输入邀请码</string>
+-    <string name="tip_invited_code_jump">没有邀请码请跳过</string>
+-    <string name="prompt_invited_code">邀请码</string>
+-    <string name="action_jump">跳过</string>
+ 
+-    <string name="msg_no_more_product">更多产品更新中，敬请期待</string>
+-    <string name="msg_no_more_content">更多精彩更新中，敬请期待</string>
+-    <string name="msg_empty_product">新品即将上架，敬请期待</string>
+-    <string name="msg_empty_message">还没有消息哦</string>
+-    <string name="msg_empty_message_commision">佣金记录为空，赶快去赚钱吧</string>
+-    <string name="msg_no_more_commision">快去推单赚取佣金吧~</string>
+-    <string name="msg_empty_message_bz">推单进度反馈、问题咨询反馈等\n都可以在这里查看</string>
+-    <string name="msg_empty_message_ad">最新政策变动、最新活动公告等\n都可以在这里查看</string>
+-    <string name="msg_empty_message_todo">你现在还没有待办事项\n好好休息一下再去赚佣金吧~</string>
+-    <string name="msg_empty_customer">你还没推荐过客户哦</string>
+-    <string name="msg_empty_customer_next">去看看产品</string>
+-    <string name="msg_empty_assessment">你还未提交过智能评估哦</string>
+-    <string name="msg_empty_assessment_next">立即评估</string>
++    <!-- -->
++    <string name="register">注册</string>
++    <string name="welcome_login_app">欢饮注册</string>
+ 
+ 
+-    <string name="title_history_loan">客户贷款</string>
+-    <string name="title_history_assessment">智能评估</string>
+-    <string name="history_assessment_p1"><![CDATA[上传征信&回答问题]]></string>
+ 
+-    <string name="tip_take_photo_paging">请分页拍摄，一次只拍一页</string>
+-    <string name="tip_sign_number">并标记编号，按序号拍摄</string>
+-    <string name="tip_click_center">先点击中心对焦，确保清晰</string>
+-    <string name="tip_hide_name_and_number">请勿遮挡客户姓名及身份证号</string>
+ 
+-    <string name="tip_commision_dialog_1">可提现金额=可提取至银行卡的佣金收入</string>
+-    <string name="tip_commision_dialog_2">结算中金额=客户已放款的佣金收入，但仍在结算中，结算完成后可提现</string>
+ 
+-    <string name="action_flash_close">关闭</string>
+-    <string name="action_flash_open">开启</string>
+ 
+-    <string name="rationale_ask_again">This app may not work correctly without the requested permissions. Open the app settings screen to modify app permissions.</string>
+-    <string name="title_settings_dialog">Permissions Required</string>
+-
+-    <!-- 权限相关-->
+-    <string name="permission_need">需要权限</string>
+-    <!--打电话-->
+-    <string name="permission_call_request">你需要打开电话权限</string>
+-    <string name="permission_call_refuse">你拒绝了拍照所需要的相关权限</string>
+-    <!-- 智能客服-->
+-    <string name="permission_smart_customer_request">智能客服需要以下权限:\n\n1.读取手机状态\n\n2.录音\n\n3.手机存储\n\n4.拍照</string>
+-    <string name="permission_smart_customer_refuse">你拒绝了「智能客服」所需要的相关权限!</string>
+-    <string name="permission_smart_customer_need_go_setting">我们将使用你的手机存储、相机、录音、读取手机状态功能，以便正常运行应用功能</string>
+-    <!-- 拍照-->
+-    <string name="permission_take_photo_request">你需要打开以下权限:\n\n1.相机\n\n2.拍照</string>
+-    <string name="permission_take_photo_refuse">你拒绝了拍照所需要的相关权限</string>
+-    <string name="permission_take_photo_need_go_setting">我们将使用你的手机存储、相机功能，以便正常运行应用功能</string>
+-    <string name="permission_select_photo_refuse">你拒绝了「图片选择」所需要的相关权限!</string>
+-
+-    <!-- 升级-->
+-    <string name="permission_update_request">应用升级需要以下权限:\n\n手机存储</string>
+-    <string name="permission_update_toast">我们将使用你的手机存储功能，以便正常运行应用功能</string>
+-
+-    <string name="permission_location_request">应用需要以下权限:\n\n位置信息</string>
+-    <string name="permission_location_refuse">你拒绝了定位权限</string>
+-
+-    <!-- 身份证扫描-->
+-    <string name="permission_scanner_id_card_request">身份证扫描需要以下权限:\n\n1.手机存储\n\n2.拍照</string>
+-    <string name="permission_scanner_id_card_refuse">你拒绝了「身份证扫描」所需要的相关权限!</string>
+-    <string name="permission_scanner_id_card_setting">我们将使用你的手机存储、相机功能，以便正常运行应用功能</string>
+-
+-    <string name="permission_guide_request">推荐产品需要以下权限:\n\n1.读取手机状态\n\n2.手机存储\n\n3.拍照\n\n4.定位</string>
+-
+-
+-    //add
+-    <string name="credit_report_upload_result_commit_detail">正在进行可贷产品及金额评估，整个过程约30分钟评估结果可在进度查询查看</string>
+-    <string name="credit_report_upload_result_commit_detail_failed">抱歉，你刚刚上传的征信报告照片不清晰\n重新拍照时,请注意以下问题</string>
+-    <string name="credit_report_upload_result_commit_remind">也可点击“微信订阅”查看进度>></string>
+-    <string name="progress_query">进度查询</string>
+-    <string name="upload_credit_report_again">重新上传征信</string>
+-    <string name="user_info_complete">客户信息补全</string>
+-    <string name="user_info_id_card">身份证信息</string>
+-    <string name="user_info_bank_card">银行卡信息</string>
+-    <string name="upload_instance">征信拍摄实例>></string>
+-    <string name="grade_supplement">(补充资料升级高级用户)</string>
+-    <string name="start_real_info_check">开始实名认证</string>
+-    <string name="start_scanner_id_card">开始扫描身份证</string>
+-    <string name="right_photo_upload">正确拍摄征信报告教程</string>
+-    <string name="take_photo_tips">小贴士：请按照编号单页拍摄，先点击中心对焦以保证拍摄清晰和完整，可连续拍摄多张，全部拍照后点击完成后可统一编辑</string>
+-
+-
+-    <!-- Strings related to build a team -->
+-    <string name="home_build_team">组建团队</string>
+-    <string name="my_team">我的团队</string>
+-    <string name="input_team_name">请输入团队名称</string>
+-    <string name="edit_valida">名称至少由2个以上12个以下字符组成</string>
+-    <string name="build_team_btn">确定创建</string>
+-    <string name="incentive_system">奖励制度</string>
+-    <string name="incentive_detail">团长在团队成员成功放款后可享受额外奖励，具体规则以活动页面为准。</string>
+-    <string name="invent_style">通过以下方式邀请成员</string>
+-    <string name="invent_dialog_title">恭喜你，创建成功！</string>
+-    <string name="build_team_nick_name">团队名称：</string>
+-    <string name="build_team_id">团队ID：</string>
+-    <string name="copy">复制</string>
+-    <string name="sure">确定</string>
+-    <string name="join_team_search">请输入团队ID或团长手机号</string>
+-    <string name="join_now">立即加入</string>
+-    <string name="join_colonel_detail">释放你的领袖气质 让一部分人先富起来</string>
+-    <string name="join_member_detail">烦事不操心 跟着团长有肉吃</string>
+-    <string name="create_team">创建团队</string>
+-    <string name="join_team">加入团队</string>
+-    <string name="no_join_team">你还未加入团队</string>
+-    <string name="no_build_team">你还未创建团队</string>
+-    <string name="colonel_home_page">团长首页</string>
+-    <string name="member_home_page">团员首页</string>
+-    <string name="invent_member">+ 邀请成员</string>
+-    <string name="into_team">进入团队</string>
+-    <string name="team_notice">团队\n公告</string>
+-    <string name="team_no_notice">暂无公告，去编辑</string>
+-    <string name="team_colonel_extra_gains">我的团长外快</string>
+-    <string name="team_manager">团队管理</string>
+-    <string name="delete">删 除</string>
+-    <string name="team_dissolve">解散团队</string>
+-    <string name="colonel_extra_gains">我的团长外快</string>
+-    <string name="lenders_of_the_month">月度最佳放款成员</string>
+-    <string name="tweet_of_the_month">月度最佳推单成员</string>
+-    <string name="tweet">去推单</string>
+-    <string name="manager_team">管理团队</string>
+-    <string name="please_input_team_nick_name">请输入修改的团队名称</string>
+-    <string name="modify_team_nick_name">修改团队名称</string>
+-    <string name="edit_notice">编辑公告</string>
+-    <string name="join_team_describe">站在更大的舞台与优秀的人一起努力</string>
+-    <string name="member">成员</string>
+-    <string name="month_tweet">月均推单</string>
+-    <string name="load">放款</string>
+-    <string name="rake_back">返佣</string>
+-    <string name="notice_details">公告详情</string>
+-    <string name="tweet_details">推单明细</string>
+-
+-    <!-- 在线客服 -->
+-    <string name="smart_client">智能客服</string>
+-    <string name="client_online">在线客服</string>
+-    <string name="change_bank_card">更换银行卡</string>
+-    <string name="change_bank_card_applying">换卡审核中</string>
+-    <string name="my_bank_card">我的银行卡</string>
+-
+-
+-    <string name="a_label_auto">自动</string>
+-    <string name="a_label_none_enhance">原图</string>
+-    <string name="a_label_enhance">增强</string>
+-    <string name="a_label_trim_image">切边</string>
+-    <string name="a_label_enhance_sharp">增强并锐化</string>
+-    <string name="a_label_gray">灰度模式</string>
+-    <string name="a_label_white_black">黑白模式</string>
+-    <string name="a_msg_working">处理中...</string>
+-    <string name="a_label_back">返回</string>
+-    <string name="a_label_add_image">添加jpg 或  png图片</string>
+-    <string name="a_label_save">保存</string>
+-    <string name="a_label_ok">确定</string>
+-    <string name="a_label_cancel">取消</string>
+-    <string name="a_label_open">打开</string>
+-    <string name="a_msg_illegal">非法图片！</string>
+-    <string name="a_msg_not_available_application">没有找到支持的应用</string>
+-    <string name="a_msg_limit">只支持jpg 和 png格式的图片。</string>
+-    <string name="a_msg_copyright">上海合合信息科技发展有限公司 \nCopyright © 版权所有</string>
+-    <string name="bound_trim_error">切边区域不合法，请重新调整切边区域</string>
+-    <string name="a_label_img_jpg">jpg</string>
+-    <string name="a_label_img_png">png</string>
+-    <string name="a_label_img_jpeg">jpeg</string>
+-    <string name="cui_welcome_title">合 合 信 息 智 能 识 别 系 统</string>
+-    <string name="cui_welcome_module_title">图像切边及增强V1.0</string>
+-    <string name="a_label_gallery">选图识别</string>
+-    <string name="a_label_captrue">拍照识别</string>
+-    <string name="intsig_copyright">上海合合信息科技发展有限公司\n Copyright© 2009-2017 版权所有</string>
+-    <string name="cui_app_title">图像切边及增强</string>
+-    <string name="cui_dl_tips_take_photo">拍照识别</string>
+-    <string name="cui_dl_tips_pick_photo">选图识别</string>
+-    <string name="cui_a_msg_empty_tips">请先拍照或者选图来识别</string>
+-
+-    <!--工具-->
+-    <string name="valuation_car">车价评估</string>
+-    <string name="valuation_house">房屋评估</string>
+-    <string name="valuation_branches">网点评估</string>
+-    <string name="poster_make">展业海报</string>
+-    <string name="video_data">影像资料实例</string>
+-    <string name="bill_tool">代扣助手</string>
+-    <string name="edit">编辑</string>
+-
+-    <!--我-->
+-    <string name="head">头像</string>
+-    <string name="nick_name">昵称</string>
+-    <string name="bank_card">银行卡</string>
+-    <string name="agent_exclusive">专属客户经理</string>
+-
+-    <string name="agent_exclusive_no">客户经理编码</string>
+-    <string name="register_agent_exclusive_no">客户经理编码（非必填）</string>
+-    <string name="agent_exclusive_no_input">请输入6位编码</string>
+-    <string name="mine_about_me">关于我们</string>
+-    <string name="app_info">关于评估神</string>
+-    <string name="attention_wechat">关注微信公众号</string>
+-    <string name="version_info">更新日志</string>
+-    <string name="tip_info">提示</string>
+-    <string name="sure_login_out">确定要退出登录?</string>
+-    <string name="banding_go_wechat_info">绑定微信后可实时接收评估神消息</string>
+-    <string name="bind">绑定</string>
+-    <string name="bind_tips">填写客户经理编码后，将与该客户经理绑定，绑定成功后，将由该客户经理为你提供服务。</string>
+-    <string name="send_sms_tips">我们将发送验证码到你的手机</string>
+-    <string name="input_sms_code">输入手机验证码</string>
+-    <string name="input_phone_num">输入手机号码</string>
+-    <string name="get_otp">获取验证码</string>
+-    <string name="old_pwd">旧密码</string>
+-    <string name="new_pwd">新密码</string>
+-    <string name="new_pwd_set">设置密码</string>
+-    <string name="check_pwd">确认密码</string>
+-    <string name="input_old_pwd">输入旧密码</string>
+-    <string name="input_new_pwd">输入新密码</string>
+-    <string name="input_new_pwd_et">6-20位字母、数字组合</string>
+-
+-    <string name="edit_nick_name">修改昵称</string>
+-    <string name="nick_name_tips">由2个以上12个以下字符组成</string>
+-    <string name="nick_name_toast">请输入2个以上12个以下字符</string>
+-    <string name="submit_thanks">立即提交，感谢反馈</string>
+-    <string name="input_feedback">我们很希望收到你的意见...</string>
+-    <string name="title_select_city">选择城市</string>
+-    <string name="more">更多</string>
+-    <string name="home_easy_product_title">轻松推荐</string>
+-    <string name="home_new_product_title">新品推荐</string>
+-    <string name="loan_todo">待办</string>
+-    <string name="loan_alldo">全部</string>
+-    <string name="customer_name">客户姓名</string>
+-    <string name="update_time">更新时间</string>
+-    <string name="login_account">账号登录</string>
+-    <string name="login_opt">短信登录</string>
+-    <string name="action_get_otp_again">收不到验证码?</string>
+-    <string name="binding_wechat_phone">关联手机号</string>
+-    <string name="binding_wechat_tip">为了提供更好的服务，请完善你的个人资料</string>
+-    <string name="binding_wechat_tip2">&#160;如果你未注册过，则登录会为你创建账号并视为同意《评估神用户协议》</string>
+-    <string name="check_details">查看详情</string>
+-    <string name="more_product_list">全部产品</string>
+-    <string name="commission_details">佣金明细</string>
+-    <string name="loan_declaration">评估神仅提供产品匹配、推荐等科技信息咨询服务，贷款签约、审核、放款由金融机构直接提供</string>
+-    <string name="user_account">用户名</string>
+-    <string name="action_done">完成</string>
+-    <string name="welcome_login_app">欢迎登录</string>
+-    <string name="wechat_login">微信登录</string>
+-    <string name="cause_of_return">退回原因：</string>
+-    <string name="not_new_version">无版本更新</string>
+-    <string name="already_new_version">已经是最新版本了哦</string>
+-    <string name="upload_report_again">重新上传</string>
+ 
+ </resources>
+Index: app/src/main/java/com/dashuf/disp/mvp/presenter/LoginPrePresenter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/presenter/LoginPrePresenter.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/java/com/dashuf/disp/mvp/presenter/LoginPrePresenter.java	(date 1557670307729)
+@@ -11,6 +11,7 @@
+ import com.jess.arms.mvp.BaseSimplePresenter;
+ import com.jess.arms.mvp.IView;
+ import com.jess.arms.mvp.Message;
++import com.jess.arms.utils.RxLifecycleUtils;
+ 
+ import java.util.Map;
+ import java.util.concurrent.TimeUnit;
+@@ -43,7 +44,7 @@
+                     @Override
+                     public void onNext(ResultBean<LoginBean> result) {
+                         Timber.i("TIME_END = " + System.currentTimeMillis());
+-                        if (result.isSuccess()) {
++                        if (result.getErrorCode() == 0)  {
+                             LoginBean loginBean = result.getData();
+                             String token = loginBean.getToken();
+                             if (null != token) {
+@@ -55,7 +56,7 @@
+                             message.what = 1;
+                             message.handleMessageToTarget();
+                             if (null != mRootView) {
+-                                mRootView.showMessage(result.getMessage());
++                                mRootView.showMessage(result.getErrorMsg());
+                             }
+                         }
+                     }
+Index: app/src/main/res/layout/adapter_home_adv.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/adapter_home_adv.xml	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/res/layout/adapter_home_adv.xml	(date 1557668416854)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<com.rey.material.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:background="@color/white"
+@@ -49,4 +49,4 @@
+         android:layout_alignParentTop="true"
+         android:background="@color/white_bg" />
+ 
+-</com.rey.material.widget.RelativeLayout>
++</RelativeLayout>
+Index: app/src/main/java/com/dashuf/disp/mvp/views/login/RegisterActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/views/login/RegisterActivity.java	(date 1557670410052)
++++ app/src/main/java/com/dashuf/disp/mvp/views/login/RegisterActivity.java	(date 1557670410052)
+@@ -0,0 +1,113 @@
++package com.dashuf.disp.mvp.views.login;
++
++import android.app.Activity;
++import android.content.Intent;
++import android.os.Bundle;
++import android.support.annotation.NonNull;
++import android.support.annotation.Nullable;
++
++import com.dashuf.disp.R;
++import com.dashuf.disp.mvp.presenter.RegisterPresenter;
++import com.jess.arms.base.App;
++import com.jess.arms.base.BaseApplication;
++import com.jess.arms.base.BaseSimpleActivity;
++import com.jess.arms.mvp.IView;
++import com.jess.arms.mvp.Message;
++import com.jess.arms.utils.ArmsUtils;
++import com.jess.arms.utils.Preconditions;
++import com.rengwuxian.materialedittext.MaterialEditText;
++
++import java.util.HashMap;
++import java.util.Map;
++
++import butterknife.BindView;
++import butterknife.ButterKnife;
++import butterknife.OnClick;
++
++
++public class RegisterActivity extends BaseSimpleActivity<RegisterPresenter> implements IView {
++
++    @BindView(R.id.et_mobile)
++    MaterialEditText etMobile;
++    @BindView(R.id.et_password)
++    MaterialEditText etPassword;
++    @BindView(R.id.et_repassword)
++    MaterialEditText etRePassword;
++
++    @Override
++    public int initView(@Nullable Bundle savedInstanceState) {
++        return R.layout.activity_register; //如果你不需要框架帮你设置 setContentView(id) 需要自行设置,请返回 0
++    }
++
++    @Override
++    public void initData(@Nullable Bundle savedInstanceState) {
++
++    }
++
++    @Override
++    @Nullable
++    public RegisterPresenter obtainPresenter() {
++        return new RegisterPresenter(((App) getApplication()).getAppComponent(), this);
++    }
++
++    @Override
++    public void showLoading() {
++
++    }
++
++    @Override
++    public void hideLoading() {
++
++    }
++
++    @Override
++    public void showMessage(@NonNull String message) {
++        Preconditions.checkNotNull(message);
++        ArmsUtils.snackbarText(message);
++    }
++
++    @Override
++    public void handleMessage(@NonNull Message message) {
++        Preconditions.checkNotNull(message);
++        switch (message.what) {
++            case 0:
++                break;
++            case 1:
++                break;
++        }
++    }
++
++
++    @Override
++    public void launchActivity(@NonNull Intent intent) {
++        Preconditions.checkNotNull(intent);
++        ArmsUtils.startActivity(intent);
++    }
++
++    @Override
++    public Activity getActivity() {
++        return this;
++    }
++
++
++    @Override
++    public void killMyself() {
++        finish();
++    }
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        // TODO: add setContentView(...) invocation
++        ButterKnife.bind(this);
++    }
++
++    @OnClick(R.id.sign_in_button)
++    public void onViewClicked() {
++        Map<String, String> params = new HashMap<>();
++        params.put("username", etMobile.getText().toString());
++        params.put("password", etPassword.getText().toString());
++        params.put("repassword", etRePassword.getText().toString());
++        mPresenter.register(Message.obtain(this, params));
++    }
++}
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/AndroidManifest.xml	(date 1557667624828)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
+     package="com.dashuf.disp">
+ 
+     <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
+@@ -63,7 +64,8 @@
+         android:icon="@mipmap/arms_log"
+         android:label="@string/app_name"
+         android:supportsRtl="true"
+-        android:theme="@style/AppTheme">
++        android:theme="@style/AppTheme"
++        tools:ignore="GoogleAppIndexingWarning">
+         <activity android:name=".mvp.views.test.UserDaggerActivity">
+ 
+             <!-- <intent-filter> -->
+@@ -83,11 +85,12 @@
+             </intent-filter>
+         </activity>
+         <activity android:name=".mvp.views.HomeActivity" />
++        <activity android:name=".mvp.views.login.RegisterActivity" />
+         <!--
+-        autolayout meta
+-        配置设计图的宽高,配合AutoLauout控件使用,在设计图尺寸以外的其它尺寸手机上,也能达到和设计图一样的效果
+-        注意: 本框架并不强制你使用 AutoLayout,如果你不想使用 AutoLayout,就不要配置下面的 meta-data
+-        -->
++            autolayout meta
++            配置设计图的宽高,配合AutoLauout控件使用,在设计图尺寸以外的其它尺寸手机上,也能达到和设计图一样的效果
++            注意: 本框架并不强制你使用 AutoLayout,如果你不想使用 AutoLayout,就不要配置下面的 meta-data
++            -->
+         <meta-data
+             android:name="design_width"
+             android:value="1080" />
+@@ -99,7 +102,5 @@
+         <meta-data
+             android:name="com.dashuf.disp.app.GlobalConfiguration"
+             android:value="ConfigModule" />
+-
+     </application>
+-
+ </manifest>
+\ No newline at end of file
+Index: app/src/main/java/com/dashuf/disp/utils/RxTransfer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/utils/RxTransfer.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/java/com/dashuf/disp/utils/RxTransfer.java	(date 1557671075670)
+@@ -1,10 +1,15 @@
+ package com.dashuf.disp.utils;
+ 
++import android.os.SystemClock;
++
+ import com.jess.arms.mvp.BaseSimplePresenter;
+ import com.jess.arms.mvp.IView;
++import com.jess.arms.utils.RxLifecycleUtils;
++import com.trello.rxlifecycle2.android.ActivityEvent;
+ 
+ import io.reactivex.ObservableTransformer;
+ import io.reactivex.android.schedulers.AndroidSchedulers;
++import io.reactivex.functions.Function;
+ import io.reactivex.schedulers.Schedulers;
+ import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
+ 
+@@ -20,10 +25,12 @@
+     public static <T> ObservableTransformer<T, T> doBefore(IView iView, BaseSimplePresenter baseSimplePresenter) {
+         return upstream -> upstream.subscribeOn(Schedulers.io())
+                 .retryWhen(new RetryWithDelay(3, 2))
++                .compose(RxLifecycleUtils.bindToLifecycle(iView))
+                 .doOnSubscribe(disposable -> {
+                     baseSimplePresenter.addDispose(disposable);
+                     iView.showLoading();
+                 })
++                .compose(RxLifecycleUtils.bindUntilEvent(iView, ActivityEvent.DESTROY))
+                 .observeOn(AndroidSchedulers.mainThread())
+                 .doFinally(iView::hideLoading);
+     }
+Index: app/src/main/java/com/dashuf/disp/mvp/model/entity/RegisterBean.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/model/entity/RegisterBean.java	(date 1557670410083)
++++ app/src/main/java/com/dashuf/disp/mvp/model/entity/RegisterBean.java	(date 1557670410083)
+@@ -0,0 +1,116 @@
++package com.dashuf.disp.mvp.model.entity;
++
++import java.util.List;
++
++public class RegisterBean {
++
++
++    /**
++     * chapterTops : []
++     * collectIds : []
++     * email :
++     * icon :
++     * id : 23380
++     * password :
++     * token :
++     * type : 0
++     * username : testccc
++     */
++
++    private String email;
++    private String icon;
++    private int id;
++    private String password;
++    private String token;
++    private int type;
++    private String username;
++    private List<?> chapterTops;
++    private List<?> collectIds;
++
++    public String getEmail() {
++        return email;
++    }
++
++    public void setEmail(String email) {
++        this.email = email;
++    }
++
++    public String getIcon() {
++        return icon;
++    }
++
++    public void setIcon(String icon) {
++        this.icon = icon;
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getPassword() {
++        return password;
++    }
++
++    public void setPassword(String password) {
++        this.password = password;
++    }
++
++    public String getToken() {
++        return token;
++    }
++
++    public void setToken(String token) {
++        this.token = token;
++    }
++
++    public int getType() {
++        return type;
++    }
++
++    public void setType(int type) {
++        this.type = type;
++    }
++
++    public String getUsername() {
++        return username;
++    }
++
++    public void setUsername(String username) {
++        this.username = username;
++    }
++
++    public List<?> getChapterTops() {
++        return chapterTops;
++    }
++
++    public void setChapterTops(List<?> chapterTops) {
++        this.chapterTops = chapterTops;
++    }
++
++    public List<?> getCollectIds() {
++        return collectIds;
++    }
++
++    public void setCollectIds(List<?> collectIds) {
++        this.collectIds = collectIds;
++    }
++
++    @Override
++    public String toString() {
++        return "RegisterBean{" +
++                "email='" + email + '\'' +
++                ", icon='" + icon + '\'' +
++                ", id=" + id +
++                ", password='" + password + '\'' +
++                ", token='" + token + '\'' +
++                ", type=" + type +
++                ", username='" + username + '\'' +
++                ", chapterTops=" + chapterTops +
++                ", collectIds=" + collectIds +
++                '}';
++    }
++}
+Index: app/src/main/java/com/dashuf/disp/mvp/views/login/LoginActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/views/login/LoginActivity.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/java/com/dashuf/disp/mvp/views/login/LoginActivity.java	(date 1557670668423)
+@@ -1,5 +1,6 @@
+ package com.dashuf.disp.mvp.views.login;
+ 
++import android.annotation.SuppressLint;
+ import android.app.Activity;
+ import android.content.Intent;
+ import android.os.Bundle;
+@@ -125,8 +126,9 @@
+ 
+     }
+ 
++    @SuppressLint("CheckResult")
+     private void login() {
+-        if (mobile.validate() && password.validate() ) {
++        if (mobile.validate() && password.validate()) {
+             Map<String, String> params = new HashMap<>();
+             params.put("username", mobile.getText().toString());
+             params.put("password", password.getText().toString());
+@@ -149,7 +151,7 @@
+     }
+ 
+ 
+-    @OnClick({R.id.iv_hide_pwd, R.id.iv_cancel, R.id.forget_pwd_button, R.id.sign_in_button})
++    @OnClick({R.id.iv_hide_pwd, R.id.iv_cancel, R.id.forget_pwd_button, R.id.sign_in_button,R.id.tv_register})
+     public void onClick(View view) {
+         switch (view.getId()) {
+             case R.id.iv_hide_pwd:
+@@ -168,15 +170,16 @@
+                 break;
+ 
+             case R.id.sign_in_button:
++                login();
++                break;
++
++            case R.id.tv_register:
++                launchActivity(new Intent(this, RegisterActivity.class));
+                 break;
+         }
+     }
+ 
+ 
+-
+-
+-
+-
+     @Override
+     protected void onStart() {
+         super.onStart();
+Index: app/src/main/java/com/dashuf/disp/mvp/model/entity/ResultBean.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/dashuf/disp/mvp/model/entity/ResultBean.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ app/src/main/java/com/dashuf/disp/mvp/model/entity/ResultBean.java	(date 1557670410132)
+@@ -11,33 +11,24 @@
+      * message : 成功
+      * data : {"firstLogin":"N","message":"登录成功","token":"P@cA9MHgjmsiv1FIfH8R2NgN"}
+      */
+-    private String errorCode;
+-    private String message;
+-    private boolean succeed;
++    private int errorCode;
++    private String errorMsg;
+     private T data;
+ 
+-    public String getErrorCode() {
++    public int getErrorCode() {
+         return errorCode;
+     }
+ 
+-    public void setErrorCode(String errorCode) {
++    public void setErrorCode(int errorCode) {
+         this.errorCode = errorCode;
+     }
+ 
+-    public String getMessage() {
+-        return message;
+-    }
+-
+-    public void setMessage(String message) {
+-        this.message = message;
+-    }
+-
+-    public boolean isSucceed() {
+-        return succeed;
++    public String getErrorMsg() {
++        return errorMsg;
+     }
+ 
+-    public void setSucceed(boolean succeed) {
+-        this.succeed = succeed;
++    public void setErrorMsg(String errorMsg) {
++        this.errorMsg = errorMsg;
+     }
+ 
+     public T getData() {
+@@ -51,14 +42,9 @@
+     @Override
+     public String toString() {
+         return "ResultBean{" +
+-                "errorCode='" + errorCode + '\'' +
+-                ", message='" + message + '\'' +
+-                ", succeed=" + succeed +
++                "errorCode=" + errorCode +
++                ", errorMsg='" + errorMsg + '\'' +
+                 ", data=" + data +
+                 '}';
+     }
+-
+-    public boolean isSuccess() {
+-        return succeed;
+-    }
+ }
+Index: arms/src/main/java/com/jess/arms/integration/ActivityLifecycle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- arms/src/main/java/com/jess/arms/integration/ActivityLifecycle.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ arms/src/main/java/com/jess/arms/integration/ActivityLifecycle.java	(date 1557623474643)
+@@ -157,7 +157,7 @@
+      */
+     private void registerFragmentCallbacks(Activity activity) {
+ 
+-        boolean useFragment = activity instanceof IActivity ? ((IActivity) activity).useFragment() : true;
++        boolean useFragment = !(activity instanceof IActivity) || ((IActivity) activity).useFragment();
+         if (activity instanceof FragmentActivity && useFragment) {
+ 
+             //mFragmentLifecycle 为 Fragment 生命周期实现类, 用于框架内部对每个 Fragment 的必要操作, 如给每个 Fragment 配置 FragmentDelegate
+Index: arms/src/main/java/com/jess/arms/mvp/BaseSimplePresenter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- arms/src/main/java/com/jess/arms/mvp/BaseSimplePresenter.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ arms/src/main/java/com/jess/arms/mvp/BaseSimplePresenter.java	(date 1557673433370)
+@@ -51,6 +51,8 @@
+ import io.reactivex.functions.Consumer;
+ import io.reactivex.schedulers.Schedulers;
+ import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
++import okhttp3.MediaType;
++import okhttp3.RequestBody;
+ 
+ /**
+  * ================================================
+@@ -99,7 +101,7 @@
+     }
+ 
+ 
+-    public String mapToJson(Map<String, String> params) {
++    public RequestBody mapToJson(Map<String, String> params) {
+         JSONObject jo = new JSONObject();
+         if (null != params) {
+             Set<String> keys = params.keySet();
+@@ -111,7 +113,7 @@
+                 }
+             }
+         }
+-        return mAppComponent.gson().toJson(jo);
++       return RequestBody.create(MediaType.parse("application/json"),mAppComponent.gson().toJson(jo));
+     }
+ 
+     @Override
+@@ -228,35 +230,35 @@
+ 
+     public Map<String, String> getParams(Map<String, String> params) {
+         if (null != params) {
+-            RSAEncryptor rsaEncryptor;
+-            try {
+-                rsaEncryptor = new RSAEncryptor();
+-                params.put("timeset", rsaEncryptor.encryptWithBase64("" + System.currentTimeMillis()));
+-            } catch (Exception e) {
+-                e.printStackTrace();
+-            }
+-            params.put("cv", DeviceUtils.getVersionCode(mAppComponent.application()) + "");
+-            params.put("jsonFlag", "Y");
+-            params.put("channelType", "02");
+-
+-            PackageInfo pinfo = DeviceUtils.getPackageInfo(mAppComponent.application());
+-
+-            String osVersion = "Android " + android.os.Build.VERSION.RELEASE;
+-            String appVersion = pinfo.versionName + "/" + pinfo.versionCode;
+-            String device = Build.MANUFACTURER + " " + android.os.Build.MODEL;
+-            String deviceId = "";
+-            try {
+-                deviceId = DeviceUtils.getIMEI(mAppComponent.application());
+-            } catch (Exception e) {
+-                e.printStackTrace();
+-            }
+-            params.put("osVersion", osVersion);
+-            params.put("appVersion", appVersion);
+-            params.put("device", device);
+-
+-            params.put("deviceId", "867305036892201");
+-            params.put("province", "广东省");
+-            params.put("city", "深圳市");
++//            RSAEncryptor rsaEncryptor;
++//            try {
++//                rsaEncryptor = new RSAEncryptor();
++//                params.put("timeset", rsaEncryptor.encryptWithBase64("" + System.currentTimeMillis()));
++//            } catch (Exception e) {
++//                e.printStackTrace();
++//            }
++//            params.put("cv", DeviceUtils.getVersionCode(mAppComponent.application()) + "");
++//            params.put("jsonFlag", "Y");
++//            params.put("channelType", "02");
++//
++//            PackageInfo pinfo = DeviceUtils.getPackageInfo(mAppComponent.application());
++//
++//            String osVersion = "Android " + android.os.Build.VERSION.RELEASE;
++//            String appVersion = pinfo.versionName + "/" + pinfo.versionCode;
++//            String device = Build.MANUFACTURER + " " + android.os.Build.MODEL;
++//            String deviceId = "";
++//            try {
++//                deviceId = DeviceUtils.getIMEI(mAppComponent.application());
++//            } catch (Exception e) {
++//                e.printStackTrace();
++//            }
++//            params.put("osVersion", osVersion);
++//            params.put("appVersion", appVersion);
++//            params.put("device", device);
++//
++//            params.put("deviceId", "867305036892201");
++//            params.put("province", "广东省");
++//            params.put("city", "深圳市");
+ //            params.put("cityId", UserSettingProvider.provider().getUserLocationCityId());
+ //            params.put("province", UserSettingProvider.provider().getUserLocationProvice());
+ //            params.put("city", UserSettingProvider.provider().getUserLocationCity());
+Index: arms/src/main/java/com/jess/arms/http/log/RequestInterceptor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- arms/src/main/java/com/jess/arms/http/log/RequestInterceptor.java	(revision a6267c3abfa216f4c8a1af88359ce09d61c23bbe)
++++ arms/src/main/java/com/jess/arms/http/log/RequestInterceptor.java	(date 1557673433343)
+@@ -32,6 +32,7 @@
+ import javax.inject.Inject;
+ import javax.inject.Singleton;
+ 
++import okhttp3.Headers;
+ import okhttp3.Interceptor;
+ import okhttp3.MediaType;
+ import okhttp3.Request;
+@@ -77,7 +78,6 @@
+     @Override
+     public Response intercept(Chain chain) throws IOException {
+         Request request = chain.request();
+-
+         boolean logRequest = printLevel == Level.ALL || (printLevel != Level.NONE && printLevel == Level.REQUEST);
+ 
+         if (logRequest) {

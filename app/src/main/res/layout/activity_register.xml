@@ -125,7 +125,8 @@
                 android:layout_height="0.5dp"
                 android:layout_alignBottom="@+id/et_password"
                 android:layout_marginBottom="@dimen/appbar_padding_top"
-                android:background="@color/white_bg_trans" />
+                android:background="@color/white_bg_trans"
+                tools:ignore="NotSibling" />
 
         </RelativeLayout>
 
